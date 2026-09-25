@@ -316,6 +316,15 @@ window.SITE_DATA = {
   ],
   "images": [
     {
+      "id": "img-mugr647e",
+      "title": "Office chair",
+      "model": "GPT Image",
+      "ratio": "1:1",
+      "prompt": "hi",
+      "src": "assets/uploads/images/1790328174018-office-chair.png",
+      "date": "2026-09-25T14:52:54"
+    },
+    {
       "id": "img-minimalism",
       "title": "Lone ceramic vase",
       "style": "minimalism",
