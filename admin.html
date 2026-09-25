@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Admin | Manage content</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.write('<script src="data/site-data.js?v=' + Date.now() + '"><\/script>');</script>
+</head>
+<body>
+  <header class="admin-top">
+    <a class="brand" href="index.html"><span class="brand-mark" id="brandMark">✦</span><span class="brand-name">Admin</span></a>
+    <span class="status" id="status">No changes</span>
+    <span class="spacer"></span>
+    <button class="btn" id="dlBtn" title="Download the data file to upload by hand">Download data file</button>
+    <button class="btn btn-primary" id="pubBtn">Publish to GitHub</button>
+  </header>
+
+  <div class="admin-wrap">
+    <nav class="admin-tabs" id="tabs">
+      <button class="chip" data-tab="images" aria-pressed="true">Images</button>
+      <button class="chip" data-tab="videos" aria-pressed="false">Videos</button>
+      <button class="chip" data-tab="styles" aria-pressed="false">Design styles</button>
+      <button class="chip" data-tab="site" aria-pressed="false">Site settings</button>
+      <button class="chip" data-tab="github" aria-pressed="false">GitHub connection</button>
+    </nav>
+
+    <!-- IMAGES + VIDEOS (same form, switches by tab) -->
+    <section id="tab-items" class="admin-cols">
+      <form class="panel" id="itemForm" autocomplete="off">
+        <h2 id="itemFormTitle">Add image</h2>
+        <div class="field">
+          <label>File</label>
+          <div class="drop" id="drop" tabindex="0">Drop a file here or click to choose<input type="file" id="fFile" hidden></div>
+          <small id="fileHint">JPG, PNG, WEBP, GIF or SVG. Keep images under 5 MB.</small>
+        </div>
+        <div class="field"><label for="fUrl">Or paste a link</label><input id="fUrl" placeholder="https://… (image, .mp4 or YouTube link)"><small>Use a link for big videos instead of uploading.</small></div>
+        <div class="field" id="posterField"><label for="fPoster">Poster image link (optional)</label><input id="fPoster" placeholder="https://… cover image for the video"></div>
+        <div class="field"><label for="fTitle">Heading</label><input id="fTitle" required placeholder="e.g. Neon rain alley"></div>
+        <div class="row">
+          <div class="field"><label for="fStyle">Design style</label><select id="fStyle"></select></div>
+          <div class="field"><label for="fModel">AI model</label><input id="fModel" list="models" placeholder="Nano Banana"></div>
+        </div>
+        <datalist id="models"><option>Nano Banana</option><option>GPT Image</option><option>Midjourney</option><option>Flux</option><option>Seedance</option><option>Veo</option><option>Kling</option><option>Runway</option></datalist>
+        <div class="field"><label for="fPrompt">Prompt</label><textarea id="fPrompt" required placeholder="Write the full prompt here"></textarea></div>
+        <div class="field"><label for="fJson">JSON prompt (optional)</label><textarea id="fJson" placeholder='Leave empty to auto-create, or paste {"prompt": "..."}'></textarea></div>
+        <div class="row">
+          <div class="field"><label for="fRatio">Aspect ratio</label><input id="fRatio" placeholder="3:4"></div>
+          <div class="field"><label for="fTags">Tags</label><input id="fTags" placeholder="poster, sale"></div>
+        </div>
+        <div class="field"><label for="fCredit">Credit (optional)</label><input id="fCredit" placeholder="Made by me with Nano Banana"></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit" id="itemSubmit">Add to timeline</button>
+          <button class="btn" type="button" id="itemReset">Clear form</button>
+        </div>
+      </form>
+      <div class="panel">
+        <h2 id="listTitle">Images</h2>
+        <div class="field"><input id="listSearch" placeholder="Search this list"></div>
+        <div class="item-list" id="itemList"></div>
+      </div>
+    </section>
+
+    <!-- STYLES -->
+    <section id="tab-styles" class="admin-cols" hidden>
+      <form class="panel" id="styleForm" autocomplete="off">
+        <h2 id="styleFormTitle">Add design style</h2>
+        <div class="field"><label for="sName">Style name (heading)</label><input id="sName" required placeholder="e.g. Brutalism"></div>
+        <div class="field"><label for="sTheory">Design theory</label><textarea id="sTheory" placeholder="What defines this style?"></textarea></div>
+        <div class="field"><label for="sPalette">Colour palette</label><input id="sPalette" placeholder="#111111, #F2F2F2, #FF3B30"><small>Hex codes separated by commas.</small></div>
+        <div class="field"><label for="sFonts">Fonts</label><input id="sFonts" placeholder="Helvetica, Inter"></div>
+        <div class="field"><label for="sBest">Best for</label><input id="sBest" placeholder="Posters, packaging"></div>
+        <div class="actions">
+          <button class="btn btn-primary" type="submit" id="styleSubmit">Add style</button>
+          <button class="btn" type="button" id="styleReset">Clear form</button>
+        </div>
+      </form>
+      <div class="panel"><h2>Design styles</h2><div class="item-list" id="styleList"></div></div>
+    </section>
+
+    <!-- SITE -->
+    <section id="tab-site" hidden>
+      <form class="panel" id="siteForm" style="max-width:720px">
+        <h2>Site settings</h2>
+        <div class="row">
+          <div class="field"><label for="cName">Website name</label><input id="cName"></div>
+          <div class="field"><label for="cEmoji">Logo symbol</label><input id="cEmoji" maxlength="4"></div>
+          <div class="field"><label for="cAccent">Accent colour</label><input id="cAccent" type="color"></div>
+        </div>
+        <div class="field"><label for="cImgH">Images page heading</label><input id="cImgH"></div>
+        <div class="field"><label for="cImgP">Images page intro</label><textarea id="cImgP" style="min-height:70px"></textarea></div>
+        <div class="field"><label for="cVidH">Videos page heading</label><input id="cVidH"></div>
+        <div class="field"><label for="cVidP">Videos page intro</label><textarea id="cVidP" style="min-height:70px"></textarea></div>
+        <div class="field"><label for="cFoot">Footer text</label><input id="cFoot"></div>
+        <div class="field"><label><input type="checkbox" id="cAdmin" style="width:auto"> Show “Add it here” link in the sidebar</label></div>
+        <button class="btn btn-primary" type="submit">Save settings</button>
+      </form>
+    </section>
+
+    <!-- GITHUB -->
+    <section id="tab-github" hidden>
+      <div class="panel" style="max-width:720px">
+        <h2>GitHub connection</h2>
+        <p class="note">Your token is stored only in this browser. Create a fine-grained token with access to just this repository and <b>Contents: Read and write</b> permission.</p>
+        <div class="row">
+          <div class="field"><label for="gOwner">GitHub username</label><input id="gOwner" placeholder="shivam-waghmare"></div>
+          <div class="field"><label for="gRepo">Repository name</label><input id="gRepo" placeholder="design-prompts"></div>
+          <div class="field"><label for="gBranch">Branch</label><input id="gBranch" placeholder="main"></div>
+        </div>
+        <div class="field"><label for="gToken">Access token</label><input id="gToken" type="password" placeholder="github_pat_…"></div>
+        <div class="actions">
+          <button class="btn btn-primary" id="gSave">Save and test</button>
+          <button class="btn" id="gLoad">Load latest from GitHub</button>
+          <button class="btn btn-danger" id="gForget">Remove token</button>
+        </div>
+        <h2 style="margin-top:20px">Activity</h2>
+        <div class="log" id="log">Ready.</div>
+      </div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
