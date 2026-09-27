@@ -138,16 +138,37 @@ window.PORTFOLIO = {
     {
       "section": "motion-graphics",
       "date": "2026-09-27",
-      "title": "Vertex",
-      "video": "https://www.instagram.com/reel/DdrqJzKAJ6I/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
-      "id": "p-mujxpqnr"
+      "title": "Office Chair Back",
+      "video": "https://youtube.com/shorts/mvyRbAwk168?si=DTq448njgFvuDO2N",
+      "id": "p-mujxwtf3"
     },
     {
       "section": "motion-graphics",
       "date": "2026-09-27",
-      "title": "Vertex",
-      "video": "https://www.instagram.com/reel/DdpYBSPAAJN/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
-      "id": "p-mujxpfuw"
+      "title": "Hector Office Chair",
+      "video": "https://youtube.com/shorts/a_rejnBd5sQ?si=h4xCxaaMYT-bGyJm",
+      "id": "p-mujxv3hj"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
+      "title": "Sunset chair",
+      "video": "https://youtube.com/shorts/HBdRmpcGjWc?si=PKN0_OwDdZbQuQym",
+      "id": "p-mujxumf3"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
+      "title": "Beeta chair",
+      "video": "https://youtube.com/shorts/s6RfMJjyQZA?si=ZI843bJ1i9RuJinW",
+      "id": "p-mujxu0jj"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
+      "title": "Elegant Chair",
+      "video": "https://youtube.com/shorts/FqID5HPXQnI?si=C8nCuTVrbPJTpjMk",
+      "id": "p-mujxt4ew"
     },
     {
       "section": "motion-graphics",
