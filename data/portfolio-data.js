@@ -1,7 +1,7 @@
 window.PORTFOLIO = {
   "config": {
     "siteTitle": "Shivam Waghmare | Portfolio",
-    "accent": "#2E8BFF",
+    "accent": "#2e8bff",
     "defaultTheme": "dark",
     "footerText": "© 2026 Shivam Waghmare. All work shown with client permission.",
     "showChatButton": true,
@@ -10,10 +10,16 @@ window.PORTFOLIO = {
     "contactTitle": "Let's talk about your project",
     "contactIntro": "Tell me what you need. I usually reply within a few hours.",
     "budgets": [
-      "Under ₹5,000",
-      "₹5,000 – ₹15,000",
-      "₹15,000 – ₹50,000",
-      "Above ₹50,000"
+      "Under ₹5",
+      "000",
+      "₹5",
+      "000 – ₹15",
+      "000",
+      "₹15",
+      "000 – ₹50",
+      "000",
+      "Above ₹50",
+      "000"
     ],
     "protect": {
       "noRightClick": true,
@@ -100,19 +106,19 @@ window.PORTFOLIO = {
     {
       "id": "image-editing",
       "type": "image",
-      "title": "Image Editing",
+      "title": "Image",
       "blurb": "Retouching, colour correction and product visuals. Drag the slider to compare before and after."
     },
     {
       "id": "motion-graphics",
       "type": "video",
-      "title": "Motion Graphics",
+      "title": "Video",
       "blurb": "Animated ads, reels and video edits."
     },
     {
       "id": "3d-models",
       "type": "model",
-      "title": "3D Models",
+      "title": "3D",
       "blurb": "Interactive FBX models. Drag to rotate, scroll to zoom."
     },
     {
@@ -120,9 +126,69 @@ window.PORTFOLIO = {
       "type": "automation",
       "title": "AI Automation",
       "blurb": "n8n workflows that run marketing and sales tasks on autopilot. Download any workflow and import it into n8n."
+    },
+    {
+      "id": "social-media-posts",
+      "title": "Social Media Posts",
+      "type": "image",
+      "blurb": ""
     }
   ],
   "items": [
+    {
+      "section": "image-editing",
+      "images": [
+        "assets/uploads/images/mujvc6730rr-001.jpg"
+      ],
+      "date": "2026-09-27",
+      "before": "assets/uploads/images/mujvc7uduxc-022.jpg",
+      "cover": "assets/uploads/images/mujvc9hzmde-001.jpg",
+      "title": "colour gra",
+      "id": "p-mujvcocm"
+    },
+    {
+      "section": "social-media-posts",
+      "images": [
+        "assets/uploads/images/mujv6is3rif-camd-3.jpg"
+      ],
+      "date": "2026-09-27",
+      "cover": "assets/uploads/images/mujv8got5gb-camd-3.jpg",
+      "title": "Canon QL: Retro Camera Poster",
+      "description": "A retro product poster for a vintage Canon QL camera. The camera sits tilted on a pedestal, framed by a large white aperture-blade graphic. A black-and-white grade, film grain, glitch streaks and a faded classical sculpture in the background give it a vintage editorial look. Callout lines point to the camera's key features, like a product spec sheet, and a contact strip at the bottom makes it ready to use as a print or social ad.\n\nConcept work created for practice. Not affiliated with Canon.",
+      "tools": [
+        "Photoshop"
+      ],
+      "tags": [
+        "poster design",
+        "product ad",
+        "retro",
+        "typography",
+        "black and white",
+        "glitch"
+      ],
+      "id": "p-mujv8wj2"
+    },
+    {
+      "section": "social-media-posts",
+      "images": [
+        "assets/uploads/images/mujv1u76nbm-red-bull2.jpg"
+      ],
+      "date": "2026-09-27",
+      "cover": "assets/uploads/images/mujv312bkoa-red-bull2.jpg",
+      "title": "Red Bull: Instagram Ad Concept",
+      "description": "A product ad made for Instagram. I placed the can centre stage with water splashes, ice cubes and a ripple reflection to create a chilled, refreshing feel. Water droplets on the can add realism, and the blurred ice in the foreground gives depth. The blue-and-white palette matches the brand colours, and a bold \"20% off\" badge adds a clear sales hook for social media.\n\nConcept work created for practice. Not affiliated with or commissioned by Red Bull.",
+      "tools": [
+        "Photoshop"
+      ],
+      "tags": [
+        "social media post",
+        "product ad",
+        "instagram creative",
+        "beverage ad",
+        "compositing"
+      ],
+      "id": "p-mujv3tau"
+    },
     {
       "section": "image-editing",
       "images": [
