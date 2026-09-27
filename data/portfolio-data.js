@@ -130,7 +130,7 @@ window.PORTFOLIO = {
       ],
       "date": "2026-01-04",
       "cover": "assets/uploads/images/mujurxvr2p9-chatgpt-image-sep-27-2026-06-56-54-pm.jpg",
-      "before": "assets/uploads/images/mujuob0n7o1-chatgpt-image-sep-27-2026-06-53-12-pm.jpg",
+      "before": "assets/uploads/images/mujuv8gb1jd-chatgpt-image-sep-27-2026-06-59-16-pm.jpg",
       "title": "After Humanity: Post-Apocalyptic New York",
       "description": "A post-apocalyptic photo manipulation that turns a busy New York street into an abandoned city. I placed a rusted, rotting shipwreck in the middle of the road, broke the windows, cracked the pavement and added debris. The yellow taxis and vans are overgrown with creeping plants. A desaturated, moody grade with atmospheric haze and light rays leaves the yellow taxi as the only warm colour, so the eye goes straight to it. The final image feels like a scene from a survival film.",
       "id": "p-mujuko1y"
