@@ -3,7 +3,6 @@ window.PORTFOLIO = {
     "siteTitle": "Shivam Waghmare | Portfolio",
     "accent": "#2E8BFF",
     "defaultTheme": "dark",
-    "showAdminLink": false,
     "footerText": "© 2026 Shivam Waghmare. All work shown with client permission.",
     "showChatButton": true,
     "chatButtonText": "Chat with us",
@@ -15,7 +14,16 @@ window.PORTFOLIO = {
       "₹5,000 – ₹15,000",
       "₹15,000 – ₹50,000",
       "Above ₹50,000"
-    ]
+    ],
+    "protect": {
+      "noRightClick": true,
+      "watermark": true,
+      "watermarkText": "© Shivam Waghmare",
+      "watermarkStyle": "corner",
+      "maxSize": 1600,
+      "lockWorkflows": false,
+      "message": "Downloads are disabled. Contact us for files."
+    }
   },
   "profile": {
     "name": "Shivam Waghmare",
@@ -24,7 +32,6 @@ window.PORTFOLIO = {
     "availability": "Available for freelance projects",
     "bio": "I design product visuals, edit photos and motion graphics, build 3D furniture models and set up n8n automations that save businesses hours every week. I spent 18 months at Diya Seating Solutions as graphic designer, video editor and social media handler, and I now work with furniture and jewellery brands on marketing content.",
     "avatar": "assets/demo/avatar.svg",
-    "banner": "assets/demo/banner.svg",
     "email": "shivamwaghmare4747@gmail.com",
     "whatsapp": "917021508201",
     "instagram": "",
@@ -68,11 +75,24 @@ window.PORTFOLIO = {
         "period": "Ongoing"
       }
     ],
-    "heroStyle": "map",
     "highlights": [
       "18 months in-house design experience",
       "Photo, video, 3D and automation",
       "Based in Mumbai, working worldwide"
+    ],
+    "steps": [
+      {
+        "title": "Share your idea",
+        "text": "Send the brief, references and deadline on WhatsApp or email."
+      },
+      {
+        "title": "Get the first draft",
+        "text": "You receive a first version with a clear price and timeline."
+      },
+      {
+        "title": "Revisions and delivery",
+        "text": "We refine it together, then you get the final files."
+      }
     ]
   },
   "sections": [
@@ -362,8 +382,8 @@ window.PORTFOLIO = {
       "id": "p-flow-2",
       "section": "ai-automation",
       "title": "Website lead to Sheets and WhatsApp",
-      "description": "Captures website enquiries, scores them with AI, saves them to a CRM sheet and alerts the owner on WhatsApp. Dummy workflow: import it into n8n and connect your own accounts.",
-      "workflow": "assets/demo/workflows/lead-capture-whatsapp.json",
+      "description": "Captures website enquiries, scores them with AI, saves them to a CRM sheet and alerts the owner on WhatsApp. Dummy locked workflow: clients see the diagram and can request it.",
+      "workflow": "assets/demo/workflows/lead-capture-whatsapp.preview.json",
       "tools": [
         "n8n",
         "OpenAI",
@@ -376,7 +396,8 @@ window.PORTFOLIO = {
       "date": "2026-09-21",
       "ai": [
         "OpenAI GPT"
-      ]
+      ],
+      "workflowLocked": true
     },
     {
       "id": "p-flow-3",

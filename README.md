@@ -1,92 +1,49 @@
-# Portfolio website (ArtStation style), GitHub Pages par
+# Portfolio website (GitHub Pages)
 
-Clients ko kaam dikhane ke liye portfolio. Default theme black hai, aur day mode mein white. Isme 4 sections hain:
+Clients ke liye portfolio: **Image Editing** (before/after slider), **Motion Graphics** (video), **3D Models** (FBX viewer) aur **AI Automation** (n8n workflow diagram). Default theme black hai, day mode mein white. Har jagah **Contact us** button hai, jo client ka message seedha aapke WhatsApp ya email par bhejta hai.
 
-| Section | Kya dikhta hai |
+## Sab kuch website par hi edit hota hai (sirf aap)
+
+1. Apni site kholo: `https://vertex0000.github.io/design-prompts/`
+2. Neeche left mein **✏️ Edit site** button dikhega. Ye sirf aapke browser mein dikhta hai, clients ko nahi.
+   - Naye phone ya laptop par pehli baar: link ke end mein `#edit` lagao (`…/design-prompts/#edit`). Username, repo aur token daalo, bas.
+3. Edit mode mein:
+   - **Koi bhi text** (naam, headline, location, About me, headings, footer): uspe click karo aur type karo.
+   - **Profile photo:** photo par 📷 dabao aur device se image chuno.
+   - **Banner:** upar right mein **Change banner** / **Remove**.
+   - **Naya project:** kisi bhi section mein pehla tile **+ Add project** hai. Image, video, FBX ya n8n JSON chuno, description, software, AI tools aur AI prompt bharo.
+   - **Edit / Delete:** har project tile par ✏️ aur 🗑️ buttons.
+   - **About:** "What I do", "Experience", "How we work", "Software" ke saath **Edit** button hai.
+   - **Settings** (neeche bar mein): contact details, WhatsApp, social links, contact form, sections (add / rename / reorder), protection, colours, GitHub.
+4. Kaam ho jaye to **Publish** dabao. 1–2 minute mein live ho jayega.
+
+Publish se pehle page reload karoge to unpublished changes chale jayenge. Browser iske liye warning deta hai.
+
+## Protection
+
+| Kya | Kaise |
 |---|---|
-| **Image Editing** | Photos, aur before/after slider (drag karke compare) |
-| **Motion Graphics** | MP4 video, YouTube ya Vimeo link |
-| **3D Models** | FBX / GLB / OBJ model, jise browser mein rotate, zoom aur wireframe mode mein dekh sakte ho |
-| **AI Automation** | n8n workflow ka diagram, steps ki list, aur Download JSON ka button |
+| Edit sirf aap | Publish ke liye aapka GitHub token chahiye. Link kisi ko bhi bhejo, koi change nahi kar sakta. |
+| Image download | Visitors ke liye right-click, drag aur "Save image" band. Nayi images par apne aap **watermark** lagta hai aur ~1600px web-size copy upload hoti hai. Original aapke PC mein rehta hai. |
+| n8n workflow lock | Project mein **🔒 Lock download** on karo. Tab sirf diagram aur steps ke naam upload hote hain. API keys, prompts aur settings upload hi nahi hote. Client ko **Request this workflow** button dikhta hai. |
+| Video | Download button band. Badi ya important videos ke liye YouTube (unlisted) link best hai. |
 
-Header mein glowing world map hai, jisme har country ka naam aur currency symbol dikhta hai. Mouse le jaane par (ya tap karne par) har country ki detail aati hai. Har jagah **Contact us** button hai. Uspe click karke client form bharta hai aur message seedha aapke WhatsApp ya email par aata hai. Neeche right corner mein floating WhatsApp button bhi hai.
-
-Sab kuch `admin.html` se badal sakte ho: projects, sections, profile, photo, header, WhatsApp, colours, contact form.
-
----
+**Honest note:** koi bhi website screenshot ko nahi rok sakti. Repo **Public** hai, isliye uploaded files github.com par dikh sakti hain. Isliye watermark aur web-size wala tareeka use kiya hai. 3D FBX browser mein dikhane ke liye download hona zaroori hai, isliye website par sirf preview/low-poly version daalo.
 
 ## Files
 
 | File | Kaam |
 |---|---|
-| `index.html` | Portfolio website |
-| `admin.html` | Upload / edit / delete / publish (sirf aapke liye) |
-| `data/portfolio-data.js` | **Saara content yahan hai** (profile, sections, projects) |
-| `assets/css/style.css` | Design (colours, fonts) |
-| `assets/js/site.js` | Website ka logic |
-| `assets/js/viewer3d.js` | 3D viewer (three.js) |
-| `assets/js/n8n.js` | n8n workflow diagram |
-| `assets/map/world-map.svg` | Header ka world map (240 countries, naam + currency) |
-| `assets/js/admin.js` | Admin ka logic |
-| `assets/demo/` | Dummy banner, avatar, 3 FBX furniture models, 3 n8n workflows |
-| `assets/uploads/` | Aapke uploads yahan save hote hain |
-| `videos.html` | Purana link, jo ab Motion Graphics par le jata hai |
-
----
-
-## Purani prompt website ko is portfolio se badalna (same repo)
-
-1. Zip extract karo, phir **portfolio** folder ke andar jao.
-2. GitHub repo kholo, **Add file → Upload files** chuno.
-3. Folder ke andar ka sab kuch select karo (**Ctrl + A**) aur drag karke chhod do. Same naam wali files (index.html, admin.html, style.css…) apne aap replace ho jayengi.
-4. Commit message `Portfolio version` likho aur **Commit changes** dabao.
-5. 1–2 minute baad site kholo: `https://vertex0000.github.io/design-prompts/`
-
-Purani files `data/site-data.js` aur `assets/dummy/` ab kaam ki nahi hain. Chaho to GitHub par delete kar do (file kholo, phir ⋯ → Delete file). Na bhi karo to site par koi fark nahi padega.
-
-Aapka GitHub token isi browser mein pehle se save hai, isliye admin mein dobara nahi daalna padega.
-
----
-
-## Naya project add karna (admin.html)
-
-1. `…/design-prompts/admin.html` kholo, phir **Projects** tab par jao.
-2. **Section** chuno. Form apne aap us section ke hisaab se badal jayega:
-   - **Image Editing:** final images drop karo. Before/after dikhana ho to **Before image** mein original photo daalo.
-   - **Motion Graphics:** MP4 drop karo (50 MB se kam) **ya** YouTube/Vimeo link paste karo. Badi videos ke liye YouTube (unlisted) best hai.
-   - **3D Models:** `.fbx`, `.glb` ya `.obj` drop karo. Preview dikhega, use ghuma ke **Use this view as the cover** dabao. Cover na chuno to save karte waqt khud capture ho jata hai.
-   - **AI Automation:** n8n se workflow export karo (⋯ → Download) aur `.json` drop karo, **ya** workflow copy karke paste karo. Diagram khud ban jata hai.
-3. Title, description, **Software used** (Photoshop, Blender…), **Made with AI** (Midjourney, Runway…) aur **AI prompt** (optional, project page par copy button ke saath dikhta hai) bharo. **Featured** tick karoge to project sabse pehle dikhega.
-4. **Add project** dabao, phir upar **Publish to GitHub**. 1–2 minute mein live ho jayega.
-
-**Edit / Delete:** right side list mein har project ke saath buttons hain. Delete karke Publish karoge to uski uploaded files bhi GitHub se hat jayengi.
-
-**Naya section** (jaise "Logo Design"): **Sections** tab kholo, naam likho, type chuno (Images / Videos / 3D / n8n), Add karo aur Publish karo. ↑ button se tabs ka order badal sakte ho.
-
-**Profile and site:** naam, headline, highlights, photo, header (world map ya apna banner), email, WhatsApp, Instagram/Behance/LinkedIn, skills, software, experience, Contact button ka text, contact form ki heading aur budget options, WhatsApp floating button, accent colour aur default theme, sab yahan se badlo.
-
----
-
-## Dummy content replace karna
-
-- **Image Editing:** 5 dummy before/after projects hain (random free photos from picsum.photos). Inhe apne edits se replace karo (Edit dabao, images badlo) ya delete kar do. *Office chair* aapki apni image hai.
-- **Motion Graphics:** 4 Blender open-movie videos hain (CC BY license, credit likha hai). Inhe apni reels se replace karo.
-- **3D Models:** 3 simple furniture FBX models hain (chair, table, sofa), jo maine banaye hain. Apne models daalo.
-- **AI Automation:** 3 sample n8n workflows hain. Ye real n8n mein import ho jaate hain, bas accounts connect karne padte hain.
-
-Dummy projects par `dummy` tag laga hai. Client ko dikhane se pehle inhe hata dena.
-
----
-
-## 3D files ke tips
-
-- **FBX** chalta hai. Textures hon to FBX export karte waqt **Embed Media** on karo.
-- Sabse reliable format **GLB** hai (Blender: File → Export → glTF Binary).
-- File chhoti rakho (20 MB se kam). Heavy model mobile par slow khulega.
-- Animated FBX (jaise Mixamo) apne aap play hota hai.
+| `index.html` | Website |
+| `data/portfolio-data.js` | Saara content (edit mode isi ko update karta hai) |
+| `assets/js/site.js` | Website logic |
+| `assets/js/editor.js` | Owner edit mode (sirf aapke browser mein load hota hai) |
+| `assets/js/viewer3d.js` | 3D viewer |
+| `assets/js/n8n.js` | n8n diagram |
+| `assets/css/style.css` | Design |
+| `admin.html` | Purana link, ab edit mode par le jata hai |
 
 ## Limits
-
-- Admin se upload ki limit: image 15 MB, video / 3D 50 MB. Isse badi file ho to link use karo.
-- Repo ka size 1 GB se kam rakho. Images WEBP/JPG mein compress karke daalo.
-- Site ka link badalna ho (jaise `…/portfolio`), to repo **Settings → General → Repository name** se rename karo. Uske baad admin ke GitHub tab mein naya naam daalna hoga.
+- Image 30 MB tak (web-size mein badal jati hai), video aur 3D 50 MB tak. Isse badi file ho to link use karo.
+- 3D: FBX mein textures embed karo (Export → Embed Media). GLB sabse reliable format hai.
+- Repo ka size 1 GB se kam rakho.

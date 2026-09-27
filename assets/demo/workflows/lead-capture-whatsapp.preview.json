@@ -1,0 +1,164 @@
+{
+  "name": "Website lead to Sheets + WhatsApp alert",
+  "locked": true,
+  "nodes": [
+    {
+      "name": "New enquiry (webhook)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "name": "Clean the data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        300
+      ]
+    },
+    {
+      "name": "Score lead (AI)",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        440,
+        300
+      ]
+    },
+    {
+      "name": "Save to CRM sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "name": "Hot lead?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        880,
+        300
+      ]
+    },
+    {
+      "name": "WhatsApp owner",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        180
+      ]
+    },
+    {
+      "name": "Email follow-up",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1100,
+        420
+      ]
+    },
+    {
+      "name": "Reply to website",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1320,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "New enquiry (webhook)": {
+      "main": [
+        [
+          {
+            "node": "Clean the data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean the data": {
+      "main": [
+        [
+          {
+            "node": "Score lead (AI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Score lead (AI)": {
+      "main": [
+        [
+          {
+            "node": "Save to CRM sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save to CRM sheet": {
+      "main": [
+        [
+          {
+            "node": "Hot lead?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hot lead?": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp owner",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Email follow-up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WhatsApp owner": {
+      "main": [
+        [
+          {
+            "node": "Reply to website",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email follow-up": {
+      "main": [
+        [
+          {
+            "node": "Reply to website",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
