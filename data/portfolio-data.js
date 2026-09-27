@@ -100,7 +100,7 @@ window.PORTFOLIO = {
         "text": "We refine it together, then you get the final files."
       }
     ],
-    "banner": "assets/uploads/images/muju0brroz3-darko-mitev-oris-final-under10-mb.jpg"
+    "banner": "assets/uploads/images/mujwfv28wpk-chatgpt-image-sep-27-2026-07-43-30-pm.png"
   },
   "sections": [
     {
@@ -135,6 +135,52 @@ window.PORTFOLIO = {
     }
   ],
   "items": [
+    {
+      "section": "social-media-posts",
+      "images": [
+        "assets/uploads/images/mujwh31iofo-fruti.jpg"
+      ],
+      "date": "2026-09-08",
+      "cover": "assets/uploads/images/mujwh5t0pnk-fruti.jpg",
+      "title": "Fresh Orange Juice Product Advertisement",
+      "description": "A vibrant commercial advertisement designed to promote a premium orange juice product. The composition combines realistic product visualization, fresh oranges, floating leaves, natural sunlight, and reflective surfaces to emphasize freshness and quality. The design focuses on creating an energetic and healthy brand image through bright color harmony, clean layout, and eye-catching product presentation suitable for social media campaigns, print advertisements, and packaging promotions.",
+      "id": "p-mujwh6ny",
+      "tools": [
+        "Adobe Photoshop   Adobe Illustrator"
+      ],
+      "tags": [
+        "product advertisement",
+        "juice packaging",
+        "orange juice",
+        "beverage branding",
+        "product mockup",
+        "commercial design",
+        "packaging design",
+        "food advertising",
+        "product visualization",
+        "photoshop manipulation",
+        "fresh fruit",
+        "healthy drink",
+        "marketing design",
+        "product photography",
+        "advertising poster",
+        "brand promotion",
+        "packaging artwork",
+        "commercial artwork",
+        "digital retouching",
+        "graphic design",
+        "creative advertisement",
+        "beverage marketing",
+        "promotional design",
+        "packaging mockup",
+        "orange branding",
+        "food packaging",
+        "visual advertising",
+        "social media design",
+        "commercial poster",
+        "product showcase"
+      ]
+    },
     {
       "section": "image-editing",
       "images": [
