@@ -138,6 +138,54 @@ window.PORTFOLIO = {
     {
       "section": "social-media-posts",
       "images": [
+        "assets/uploads/images/mujwvjhkolr-2.jpg"
+      ],
+      "date": "2026-09-03",
+      "title": "photo manipulation, post apocalyptic, environment design, city destruction, cinematic artwork, visual effects, photoshop compositing, disaster scene, concept art, matte painting, urban destruction, environmental storytelling, digital art, fire effects, smoke effects, ruined city, cinematic lighting, before and after, creative retouching, movie poster design, survival artwork, VFX design, apocalypse scene, photo editing, fantasy environment, dramatic composition, digital compositing, graphic design, realistic manipulation, cinematic color grading",
+      "description": "A minimalist advertising poster created for a digital marketing agency, featuring a creative paper airplane concept that casts the shadow of a commercial aircraft. The design symbolizes business growth, brand transformation, and turning audience attention into real customers. Clean typography, bold color contrast, and visual storytelling were used to deliver a memorable marketing message while maintaining a modern and professional brand identity.",
+      "id": "p-mujwwa1b"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
+      "video": "assets/uploads/videos/mujwv4wsm5a-1.mp4",
+      "title": "Advertising",
+      "id": "p-mujwv8qf"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
+      "video": "assets/uploads/videos/mujwusr6jmk-4.mp4",
+      "title": "Advertising",
+      "id": "p-mujwv0jb"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
+      "video": "assets/uploads/videos/mujwu5v2k54-3.mp4",
+      "title": "Vertex Advertising Video",
+      "id": "p-mujwuoen"
+    },
+    {
+      "section": "image-editing",
+      "images": [
+        "assets/uploads/images/mujwqtwjc3a-chatgpt-image-sep-27-2026-07-50-39-pm.jpg"
+      ],
+      "date": "2026-09-27",
+      "before": "assets/uploads/images/mujwqwp49wo-chatgpt-image-sep-27-2026-07-52-05-pm.jpg",
+      "cover": "assets/uploads/images/mujwqyg16vc-chatgpt-image-sep-27-2026-07-50-39-pm.jpg",
+      "title": "Post-Apocalyptic City Transformation",
+      "description": "A cinematic environment manipulation project that transforms a modern urban street into a post-apocalyptic disaster scene. The artwork combines destroyed architecture, burning debris, atmospheric smoke, damaged vehicles, and environmental storytelling while maintaining the original perspective and composition. Advanced compositing, realistic lighting integration, and color grading techniques were used to create a believable survival-themed visual inspired by blockbuster films and video game concept art.",
+      "tools": [
+        "Photoshop",
+        "Lightroom"
+      ],
+      "credit": "photo manipulation, post apocalyptic, environment design, city destruction, cinematic artwork, visual effects, photoshop compositing, disaster scene, concept art, matte painting, urban destruction, environmental storytelling, digital art, fire effects, smoke effects, ruined city, cinematic lighting, before and after, creative retouching, movie poster design, survival artwork, VFX design, apocalypse scene, photo editing, fantasy environment, dramatic composition, digital compositing, graphic design, realistic manipulation, cinematic color grading",
+      "id": "p-mujws4gf"
+    },
+    {
+      "section": "social-media-posts",
+      "images": [
         "assets/uploads/images/mujwh31iofo-fruti.jpg"
       ],
       "date": "2026-09-08",
