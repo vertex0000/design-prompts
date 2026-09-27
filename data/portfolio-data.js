@@ -138,6 +138,20 @@ window.PORTFOLIO = {
     {
       "section": "motion-graphics",
       "date": "2026-09-27",
+      "title": "Shoot + Edit  3 Seater sofa",
+      "video": "https://youtu.be/CPZ5AK6Bg5c?si=UNyElwxe24KWbA6a",
+      "id": "p-mujxorav"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
+      "title": "lexus 3 seater sofa Soot + Edit",
+      "video": "https://youtu.be/YSFAxXwPBZU?si=lOcdo_xJy4gahlb-",
+      "id": "p-mujxn9cn"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
       "title": "Lookwell Office Chair – AI Product Showcase Video",
       "description": "An AI-generated product showcase video created for the Lookwell Office Chair by Diya Seating Solutions. The video presents the chair in a premium studio environment with cinematic lighting, smooth camera movements, close-up feature highlights, and detailed product visualization. Key elements such as ergonomic design, comfortable seating, sturdy construction, premium upholstery, and modern aesthetics are showcased through dynamic angles and professional product animation. The project focuses on creating a high-end commercial presentation suitable for social media marketing, advertisements, e-commerce platforms, and brand promotions.",
       "video": "https://youtu.be/uAC1ae7KalA",
