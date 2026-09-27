@@ -138,6 +138,20 @@ window.PORTFOLIO = {
     {
       "section": "motion-graphics",
       "date": "2026-09-27",
+      "title": "Vertex",
+      "video": "https://www.instagram.com/reel/DdrqJzKAJ6I/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+      "id": "p-mujxpqnr"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
+      "title": "Vertex",
+      "video": "https://www.instagram.com/reel/DdpYBSPAAJN/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+      "id": "p-mujxpfuw"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
       "title": "Shoot + Edit  3 Seater sofa",
       "video": "https://youtu.be/CPZ5AK6Bg5c?si=UNyElwxe24KWbA6a",
       "id": "p-mujxorav"
