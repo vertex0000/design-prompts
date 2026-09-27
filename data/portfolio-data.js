@@ -26,7 +26,7 @@ window.PORTFOLIO = {
     }
   },
   "profile": {
-    "name": "Shivam A Waghmare",
+    "name": "Vertex",
     "headline": "Graphic designer, motion designer and AI automation builder",
     "location": "Mumbai, India",
     "availability": "Available for freelance projects",
@@ -122,5 +122,54 @@ window.PORTFOLIO = {
       "blurb": "n8n workflows that run marketing and sales tasks on autopilot. Download any workflow and import it into n8n."
     }
   ],
-  "items": []
+  "items": [
+    {
+      "section": "image-editing",
+      "images": [
+        "assets/uploads/images/mujurw0jam1-chatgpt-image-sep-27-2026-06-56-54-pm.jpg"
+      ],
+      "date": "2026-01-04",
+      "cover": "assets/uploads/images/mujurxvr2p9-chatgpt-image-sep-27-2026-06-56-54-pm.jpg",
+      "before": "assets/uploads/images/mujuob0n7o1-chatgpt-image-sep-27-2026-06-53-12-pm.jpg",
+      "title": "After Humanity: Post-Apocalyptic New York",
+      "description": "A post-apocalyptic photo manipulation that turns a busy New York street into an abandoned city. I placed a rusted, rotting shipwreck in the middle of the road, broke the windows, cracked the pavement and added debris. The yellow taxis and vans are overgrown with creeping plants. A desaturated, moody grade with atmospheric haze and light rays leaves the yellow taxi as the only warm colour, so the eye goes straight to it. The final image feels like a scene from a survival film.",
+      "id": "p-mujuko1y"
+    },
+    {
+      "section": "image-editing",
+      "images": [
+        "assets/uploads/images/mujuf2embm0-uhghed-1.jpg"
+      ],
+      "date": "2025-10-05",
+      "cover": "assets/uploads/images/mujuezgobfa-untitled-1.jpg",
+      "title": "The Watcher: Surreal Wilderness Composite",
+      "description": "A photo manipulation built from four separate photos: a marshland, a hunter, an abandoned tower and a brown bear. I cut out each element, fixed the perspective and scale, then matched the light direction, shadows and reflections so everything sits naturally in one scene. A warm golden-hour grade and a dark foreground silhouette add depth and tension, as the hunter watches a bear in front of a strange abandoned structure.",
+      "tools": [
+        "Photoshop"
+      ],
+      "tags": [
+        "photo manipulation",
+        "compositing",
+        "matte painting",
+        "surreal",
+        "colour grading"
+      ],
+      "id": "p-mujufmkm"
+    },
+    {
+      "section": "image-editing",
+      "images": [
+        "assets/uploads/images/mujuaneteqo-svsv.jpg"
+      ],
+      "date": "2025-09-27",
+      "before": "assets/uploads/images/mujuaxhcszt-sdvcv.jpg",
+      "title": "Day to Night Conversion: Forest Cabin",
+      "description": "A day-to-night photo manipulation. I turned an overcast daytime shot of a forest cabin into a dark, cinematic night scene. I cooled the colour grade, pulled the exposure down, and added realistic grain for a low-light camera look. An abandoned bus with glowing headlights was composited into the right side to create mystery and a focal point, with its lighting and shadows matched to the scene.",
+      "tools": [
+        "Photoshop",
+        "Lightroom"
+      ],
+      "id": "p-mujub11x"
+    }
+  ]
 };
