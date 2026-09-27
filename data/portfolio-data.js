@@ -100,7 +100,7 @@ window.PORTFOLIO = {
         "text": "We refine it together, then you get the final files."
       }
     ],
-    "banner": "assets/uploads/images/mujwfv28wpk-chatgpt-image-sep-27-2026-07-43-30-pm.png"
+    "banner": "assets/uploads/images/muk6fqkea7f-nikolai-murenets-3.jpg"
   },
   "sections": [
     {
