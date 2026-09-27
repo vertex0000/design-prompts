@@ -1,0 +1,178 @@
+{
+  "name": "AI product descriptions + images for e-commerce",
+  "nodes": [
+    {
+      "parameters": {
+        "event": "rowAdded",
+        "sheetName": "Products"
+      },
+      "id": "7064f57d-b2e8-5ad7-857d-70f02be4e33f",
+      "name": "New product added",
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "text",
+        "prompt": "Write a 60-word product description for {{ $json.name }} ({{ $json.material }})"
+      },
+      "id": "6c9b636f-7dd5-5c8d-b368-395c4cdb581a",
+      "name": "Write description (AI)",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        240,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "Photoreal lifestyle photo of {{ $json.name }} in a modern cafe"
+      },
+      "id": "f6efce8d-b2f9-5f10-879f-2d9e826b0bb6",
+      "name": "Generate lifestyle image",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        240,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition"
+      },
+      "id": "94417ad4-0727-598d-9669-73b42efde35e",
+      "name": "Merge results",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        480,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upload"
+      },
+      "id": "c67aab06-2920-583f-9a0f-f67f1bbf478d",
+      "name": "Upload image to Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        700,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "sheetName": "Products"
+      },
+      "id": "a5c10d76-95bc-52a9-bfac-67775c1635a7",
+      "name": "Update product row",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        920,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "text": "Product ready: {{ $json.name }}"
+      },
+      "id": "fb2b7c55-2fae-5c9e-8df7-d41bf67fad70",
+      "name": "Notify on Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1140,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "New product added": {
+      "main": [
+        [
+          {
+            "node": "Write description (AI)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Generate lifestyle image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write description (AI)": {
+      "main": [
+        [
+          {
+            "node": "Merge results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate lifestyle image": {
+      "main": [
+        [
+          {
+            "node": "Merge results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge results": {
+      "main": [
+        [
+          {
+            "node": "Upload image to Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload image to Drive": {
+      "main": [
+        [
+          {
+            "node": "Update product row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update product row": {
+      "main": [
+        [
+          {
+            "node": "Notify on Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

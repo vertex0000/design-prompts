@@ -4,115 +4,201 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>Admin | Manage content</title>
+<title>Portfolio admin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
-<script>document.write('<script src="data/site-data.js?v=' + Date.now() + '"><\/script>');</script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script>document.write('<script src="data/portfolio-data.js?v=' + Date.now() + '"><\/script>');</script>
+<script>
+  (function () { var t = null; try { t = localStorage.getItem('pf-theme'); } catch (e) {} document.documentElement.dataset.theme = t || 'dark'; })();
+</script>
 </head>
 <body>
   <header class="admin-top">
-    <a class="brand" href="index.html"><span class="brand-mark" id="brandMark">✦</span><span class="brand-name">Admin</span></a>
+    <a class="logo" href="index.html">Portfolio admin</a>
     <span class="status" id="status">No changes</span>
-    <span class="spacer"></span>
-    <button class="btn" id="dlBtn" title="Download the data file to upload by hand">Download data file</button>
+    <span style="flex:1"></span>
+    <a class="btn btn-ghost" href="index.html" target="_blank">View site</a>
+    <button class="btn" id="dlBtn">Download data file</button>
     <button class="btn btn-primary" id="pubBtn">Publish to GitHub</button>
   </header>
 
   <div class="admin-wrap">
-    <nav class="admin-tabs" id="tabs">
-      <button class="chip" data-tab="images" aria-pressed="true">Images</button>
-      <button class="chip" data-tab="videos" aria-pressed="false">Videos</button>
-      <button class="chip" data-tab="styles" aria-pressed="false">Design styles</button>
-      <button class="chip" data-tab="site" aria-pressed="false">Site settings</button>
-      <button class="chip" data-tab="github" aria-pressed="false">GitHub connection</button>
+    <nav class="admin-tabs" id="tabs" role="tablist">
+      <button role="tab" data-tab="projects" aria-selected="true">Projects</button>
+      <button role="tab" data-tab="sections" aria-selected="false">Sections</button>
+      <button role="tab" data-tab="profile" aria-selected="false">Profile and site</button>
+      <button role="tab" data-tab="github" aria-selected="false">GitHub connection</button>
     </nav>
 
-    <!-- IMAGES + VIDEOS (same form, switches by tab) -->
-    <section id="tab-items" class="admin-cols">
-      <form class="panel" id="itemForm" autocomplete="off">
-        <h2 id="itemFormTitle">Add image</h2>
-        <div class="field">
-          <label>File</label>
-          <div class="drop" id="drop" tabindex="0">Drop a file here or click to choose<input type="file" id="fFile" hidden></div>
-          <small id="fileHint">JPG, PNG, WEBP, GIF or SVG. Keep images under 5 MB.</small>
+    <!-- PROJECTS -->
+    <section id="tab-projects" class="admin-cols">
+      <form class="panel" id="pForm" autocomplete="off" novalidate>
+        <h2 id="pFormTitle">Add project</h2>
+        <div class="field"><label for="pSection">Section</label><select id="pSection"></select></div>
+        <div class="field"><label for="pTitle">Title</label><input id="pTitle" placeholder="e.g. Sofa product retouch"></div>
+        <div class="field"><label for="pDesc">Description</label><textarea id="pDesc" placeholder="What was the brief and what did you do?"></textarea></div>
+
+        <!-- image -->
+        <div data-type="image">
+          <div class="field"><span class="lbl">Images</span>
+            <div class="drop" data-drop="images" tabindex="0">Drop images here or click to choose<br><small>The first image is the cover. You can add several.</small></div>
+            <div class="thumbs" id="imagesThumbs"></div>
+          </div>
+          <div class="field"><span class="lbl">Before image (optional)</span>
+            <div class="drop" data-drop="before" tabindex="0">Drop the original, unedited photo<br><small>Shows a before/after slider against the first image.</small></div>
+            <div class="thumbs" id="beforeThumbs"></div>
+          </div>
         </div>
-        <div class="field"><label for="fUrl">Or paste a link</label><input id="fUrl" placeholder="https://… (image, .mp4 or YouTube link)"><small>Use a link for big videos instead of uploading.</small></div>
-        <div class="field" id="posterField"><label for="fPoster">Poster image link (optional)</label><input id="fPoster" placeholder="https://… cover image for the video"></div>
-        <div class="field"><label for="fTitle">Heading</label><input id="fTitle" required placeholder="e.g. Neon rain alley"></div>
+
+        <!-- video -->
+        <div data-type="video">
+          <div class="field"><span class="lbl">Video</span>
+            <div class="drop" data-drop="video" tabindex="0">Drop an MP4 or WEBM (under 50 MB)</div>
+            <input id="pVideoUrl" placeholder="…or paste a YouTube, Vimeo or .mp4 link" style="margin-top:6px">
+            <div class="thumbs" id="videoThumbs"></div>
+          </div>
+        </div>
+
+        <!-- model -->
+        <div data-type="model">
+          <div class="field"><span class="lbl">3D model</span>
+            <div class="drop" data-drop="model" tabindex="0">Drop an .fbx, .glb or .obj file (under 50 MB)<br><small>Textures must be embedded in the file.</small></div>
+            <input id="pModelUrl" placeholder="…or paste a link to the model file" style="margin-top:6px">
+            <div class="preview-box" id="modelPreview" hidden><div class="v3d" id="adminV3d"></div></div>
+            <button class="btn" type="button" id="snapBtn" hidden style="margin-top:8px">Use this view as the cover</button>
+          </div>
+        </div>
+
+        <!-- automation -->
+        <div data-type="automation">
+          <div class="field"><span class="lbl">n8n workflow</span>
+            <div class="drop" data-drop="workflow" tabindex="0">Drop the exported workflow .json</div>
+            <textarea id="pWorkflowText" placeholder="…or paste the workflow JSON here (in n8n: select all nodes, Ctrl+C)" style="margin-top:6px;min-height:70px"></textarea>
+            <div class="preview-box" id="flowPreview" hidden><div class="flow"></div></div>
+          </div>
+        </div>
+
+        <div class="field" data-cover><span class="lbl">Cover image (optional)</span>
+          <div class="drop" data-drop="cover" tabindex="0">Drop a thumbnail image</div>
+          <small id="coverHint"></small>
+          <div class="thumbs" id="coverThumbs"></div>
+        </div>
+        <div class="field" data-extra><span class="lbl">Extra images (optional)</span>
+          <div class="drop" data-drop="extra" tabindex="0">Drop screenshots, stills or process images</div>
+          <div class="thumbs" id="extraThumbs"></div>
+        </div>
+
         <div class="row">
-          <div class="field"><label for="fStyle">Design style</label><select id="fStyle"></select></div>
-          <div class="field"><label for="fModel">AI model</label><input id="fModel" list="models" placeholder="Nano Banana"></div>
+          <div class="field"><label for="pTools">Software</label><input id="pTools" placeholder="Photoshop, After Effects"></div>
+          <div class="field"><label for="pTags">Tags</label><input id="pTags" placeholder="furniture, ad"></div>
         </div>
-        <datalist id="models"><option>Nano Banana</option><option>GPT Image</option><option>Midjourney</option><option>Flux</option><option>Seedance</option><option>Veo</option><option>Kling</option><option>Runway</option></datalist>
-        <div class="field"><label for="fPrompt">Prompt</label><textarea id="fPrompt" required placeholder="Write the full prompt here"></textarea></div>
-        <div class="field"><label for="fJson">JSON prompt (optional)</label><textarea id="fJson" placeholder='Leave empty to auto-create, or paste {"prompt": "..."}'></textarea></div>
         <div class="row">
-          <div class="field"><label for="fRatio">Aspect ratio</label><input id="fRatio" placeholder="3:4"></div>
-          <div class="field"><label for="fTags">Tags</label><input id="fTags" placeholder="poster, sale"></div>
+          <div class="field"><label for="pClient">Client (optional)</label><input id="pClient"></div>
+          <div class="field"><label for="pDate">Date</label><input id="pDate" type="date"></div>
         </div>
-        <div class="field"><label for="fCredit">Credit (optional)</label><input id="fCredit" placeholder="Made by me with Nano Banana"></div>
-        <div class="actions">
-          <button class="btn btn-primary" type="submit" id="itemSubmit">Add to timeline</button>
-          <button class="btn" type="button" id="itemReset">Clear form</button>
+        <div class="field"><label for="pCredit">Credit (optional)</label><input id="pCredit" placeholder="Photo by…"></div>
+        <label class="check" style="margin-bottom:16px"><input type="checkbox" id="pFeatured"> Featured (shown first)</label>
+        <div class="row" style="flex:none">
+          <button class="btn btn-primary" type="submit" id="pSubmit">Add project</button>
+          <button class="btn" type="button" id="pReset">Clear form</button>
         </div>
       </form>
+
       <div class="panel">
-        <h2 id="listTitle">Images</h2>
-        <div class="field"><input id="listSearch" placeholder="Search this list"></div>
-        <div class="item-list" id="itemList"></div>
+        <h2>Projects</h2>
+        <div class="filters"><select id="fSection"></select><input id="fSearch" placeholder="Search projects"></div>
+        <div class="item-list" id="pList"></div>
       </div>
     </section>
 
-    <!-- STYLES -->
-    <section id="tab-styles" class="admin-cols" hidden>
-      <form class="panel" id="styleForm" autocomplete="off">
-        <h2 id="styleFormTitle">Add design style</h2>
-        <div class="field"><label for="sName">Style name (heading)</label><input id="sName" required placeholder="e.g. Brutalism"></div>
-        <div class="field"><label for="sTheory">Design theory</label><textarea id="sTheory" placeholder="What defines this style?"></textarea></div>
-        <div class="field"><label for="sPalette">Colour palette</label><input id="sPalette" placeholder="#111111, #F2F2F2, #FF3B30"><small>Hex codes separated by commas.</small></div>
-        <div class="field"><label for="sFonts">Fonts</label><input id="sFonts" placeholder="Helvetica, Inter"></div>
-        <div class="field"><label for="sBest">Best for</label><input id="sBest" placeholder="Posters, packaging"></div>
-        <div class="actions">
-          <button class="btn btn-primary" type="submit" id="styleSubmit">Add style</button>
-          <button class="btn" type="button" id="styleReset">Clear form</button>
+    <!-- SECTIONS -->
+    <section id="tab-sections" class="admin-cols" hidden>
+      <form class="panel" id="sForm" autocomplete="off">
+        <h2 id="sFormTitle">Add section</h2>
+        <div class="field"><label for="sTitle">Section name</label><input id="sTitle" required placeholder="e.g. Logo Design"></div>
+        <div class="field"><label for="sType">What it shows</label>
+          <select id="sType">
+            <option value="image">Images (with optional before/after)</option>
+            <option value="video">Videos</option>
+            <option value="model">3D models</option>
+            <option value="automation">n8n automations</option>
+          </select>
+        </div>
+        <div class="field"><label for="sBlurb">Short description</label><textarea id="sBlurb" style="min-height:70px"></textarea></div>
+        <div class="row" style="flex:none">
+          <button class="btn btn-primary" type="submit" id="sSubmit">Add section</button>
+          <button class="btn" type="button" id="sReset">Clear form</button>
         </div>
       </form>
-      <div class="panel"><h2>Design styles</h2><div class="item-list" id="styleList"></div></div>
+      <div class="panel"><h2>Sections</h2><p class="note">The order here is the order of the tabs on your site.</p><div class="item-list" id="sList"></div></div>
     </section>
 
-    <!-- SITE -->
-    <section id="tab-site" hidden>
-      <form class="panel" id="siteForm" style="max-width:720px">
-        <h2>Site settings</h2>
+    <!-- PROFILE -->
+    <section id="tab-profile" hidden>
+      <form class="panel" id="prForm" style="max-width:860px" autocomplete="off">
+        <h2>Profile</h2>
         <div class="row">
-          <div class="field"><label for="cName">Website name</label><input id="cName"></div>
-          <div class="field"><label for="cEmoji">Logo symbol</label><input id="cEmoji" maxlength="4"></div>
-          <div class="field"><label for="cAccent">Accent colour</label><input id="cAccent" type="color"></div>
+          <div class="field"><label for="prName">Name</label><input id="prName"></div>
+          <div class="field"><label for="prLoc">Location</label><input id="prLoc"></div>
         </div>
-        <div class="field"><label for="cImgH">Images page heading</label><input id="cImgH"></div>
-        <div class="field"><label for="cImgP">Images page intro</label><textarea id="cImgP" style="min-height:70px"></textarea></div>
-        <div class="field"><label for="cVidH">Videos page heading</label><input id="cVidH"></div>
-        <div class="field"><label for="cVidP">Videos page intro</label><textarea id="cVidP" style="min-height:70px"></textarea></div>
+        <div class="field"><label for="prHead">Headline</label><input id="prHead"></div>
+        <div class="field"><label for="prAvail">Availability line</label><input id="prAvail" placeholder="Available for freelance projects"><small>Leave empty to hide it.</small></div>
+        <div class="field"><label for="prBio">About me</label><textarea id="prBio" style="min-height:130px"></textarea><small>Leave an empty line between paragraphs.</small></div>
+        <div class="row">
+          <div class="field"><span class="lbl">Profile photo</span><div class="drop" data-drop="avatar" tabindex="0">Drop a square photo</div><div class="thumbs" id="avatarThumbs"></div></div>
+          <div class="field"><span class="lbl">Banner</span><div class="drop" data-drop="banner" tabindex="0">Drop a wide image (1800×440)</div><div class="thumbs" id="bannerThumbs"></div></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="prEmail">Email</label><input id="prEmail" type="email"></div>
+          <div class="field"><label for="prWa">WhatsApp number</label><input id="prWa" placeholder="91XXXXXXXXXX"><small>With country code, no + or spaces.</small></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="prIg">Instagram link</label><input id="prIg" placeholder="https://instagram.com/…"></div>
+          <div class="field"><label for="prBe">Behance link</label><input id="prBe"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="prIn">LinkedIn link</label><input id="prIn"></div>
+          <div class="field"><label for="prYt">YouTube link</label><input id="prYt"></div>
+        </div>
+        <div class="field"><label for="prSkills">What I do</label><input id="prSkills"><small>Separate with commas.</small></div>
+        <div class="field"><label for="prSoft">Software</label><input id="prSoft"><small>Separate with commas.</small></div>
+        <div class="field"><label for="prExp">Experience</label><textarea id="prExp" style="min-height:90px" placeholder="Role | Company | Period"></textarea><small>One per line: Role | Company | Period</small></div>
+
+        <h2 style="margin-top:10px">Site</h2>
+        <div class="row">
+          <div class="field"><label for="cTitle">Browser tab title</label><input id="cTitle"></div>
+          <div class="field"><label for="prHire">Hire button text</label><input id="prHire"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="cAccent">Accent colour</label><input id="cAccent" type="color" style="height:40px;padding:3px"></div>
+          <div class="field"><label for="cTheme">Default theme</label><select id="cTheme"><option value="dark">Dark (black)</option><option value="light">Day (white)</option></select></div>
+        </div>
         <div class="field"><label for="cFoot">Footer text</label><input id="cFoot"></div>
-        <div class="field"><label><input type="checkbox" id="cAdmin" style="width:auto"> Show “Add it here” link in the sidebar</label></div>
-        <button class="btn btn-primary" type="submit">Save settings</button>
+        <label class="check" style="margin-bottom:16px"><input type="checkbox" id="cAdmin"> Show a “Manage portfolio” link in the footer</label>
+        <button class="btn btn-primary" type="submit">Save profile</button>
       </form>
     </section>
 
     <!-- GITHUB -->
     <section id="tab-github" hidden>
-      <div class="panel" style="max-width:720px">
+      <div class="panel" style="max-width:760px">
         <h2>GitHub connection</h2>
-        <p class="note">Your token is stored only in this browser. Create a fine-grained token with access to just this repository and <b>Contents: Read and write</b> permission.</p>
+        <p class="note">Your token stays in this browser only. Use a fine-grained token for this one repository with <b>Contents: Read and write</b>.</p>
         <div class="row">
-          <div class="field"><label for="gOwner">GitHub username</label><input id="gOwner" placeholder="shivam-waghmare"></div>
-          <div class="field"><label for="gRepo">Repository name</label><input id="gRepo" placeholder="design-prompts"></div>
+          <div class="field"><label for="gOwner">GitHub username</label><input id="gOwner" placeholder="vertex0000"></div>
+          <div class="field"><label for="gRepo">Repository</label><input id="gRepo" placeholder="design-prompts"></div>
           <div class="field"><label for="gBranch">Branch</label><input id="gBranch" placeholder="main"></div>
         </div>
         <div class="field"><label for="gToken">Access token</label><input id="gToken" type="password" placeholder="github_pat_…"></div>
-        <div class="actions">
+        <div class="row" style="flex:none;flex-wrap:wrap">
           <button class="btn btn-primary" id="gSave">Save and test</button>
           <button class="btn" id="gLoad">Load latest from GitHub</button>
           <button class="btn btn-danger" id="gForget">Remove token</button>
@@ -122,7 +208,9 @@
       </div>
     </section>
   </div>
+  <input type="file" id="picker" hidden>
   <div class="toast" id="toast" role="status"></div>
+  <script src="assets/js/n8n.js"></script>
   <script src="assets/js/admin.js"></script>
 </body>
 </html>

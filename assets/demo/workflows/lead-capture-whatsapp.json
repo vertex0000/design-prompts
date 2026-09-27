@@ -1,0 +1,216 @@
+{
+  "name": "Website lead to Sheets + WhatsApp alert",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "new-lead"
+      },
+      "id": "fc10038b-bef5-5cee-b321-80ca73bd2bae",
+      "name": "New enquiry (webhook)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "name",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            },
+            {
+              "name": "phone",
+              "value": "={{ $json.body.phone }}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "id": "c5962470-008c-5180-bdb2-209ac9450b65",
+      "name": "Clean the data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "text",
+        "prompt": "Rate this enquiry Hot, Warm or Cold: {{ $json.message }}"
+      },
+      "id": "4a938a9a-ece4-5288-aacd-d5f0c997b440",
+      "name": "Score lead (AI)",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        440,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "sheetName": "Leads"
+      },
+      "id": "f62892ef-db3f-5349-92b2-d3fb6ea06af9",
+      "name": "Save to CRM sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c94becd6-e5c3-5181-bfed-a6d206d13ec7",
+      "name": "Hot lead?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        880,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "textBody": "New hot lead: {{ $json.name }} {{ $json.phone }}"
+      },
+      "id": "f4b72ce6-3857-524a-8258-206589d5353a",
+      "name": "WhatsApp owner",
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "Thanks for your enquiry"
+      },
+      "id": "962ce244-16cc-5448-99d7-1aba492c03aa",
+      "name": "Email follow-up",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1100,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"ok\": true}"
+      },
+      "id": "4bc1d8b0-4feb-5d61-93c4-1e69adff23cb",
+      "name": "Reply to website",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1320,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "New enquiry (webhook)": {
+      "main": [
+        [
+          {
+            "node": "Clean the data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean the data": {
+      "main": [
+        [
+          {
+            "node": "Score lead (AI)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Score lead (AI)": {
+      "main": [
+        [
+          {
+            "node": "Save to CRM sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save to CRM sheet": {
+      "main": [
+        [
+          {
+            "node": "Hot lead?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hot lead?": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp owner",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Email follow-up",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WhatsApp owner": {
+      "main": [
+        [
+          {
+            "node": "Reply to website",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email follow-up": {
+      "main": [
+        [
+          {
+            "node": "Reply to website",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

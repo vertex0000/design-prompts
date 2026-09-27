@@ -1,105 +1,89 @@
-# PromptCanvas — Design Styles + AI Prompts (GitHub Pages)
+# Portfolio website (ArtStation style), GitHub Pages par
 
-Graphic designers ke liye prompt gallery: 22 design styles, har style ki theory, color palette, fonts aur copy-ready prompts (text + JSON). Alag video page. Admin page se upload, edit, delete — sab kuch.
+Clients ko kaam dikhane ke liye portfolio. Default theme black hai, aur day mode mein white. Isme 4 sections hain:
+
+| Section | Kya dikhta hai |
+|---|---|
+| **Image Editing** | Photos, aur before/after slider (drag karke compare) |
+| **Motion Graphics** | MP4 video, YouTube ya Vimeo link |
+| **3D Models** | FBX / GLB / OBJ model, jise browser mein rotate, zoom aur wireframe mode mein dekh sakte ho |
+| **AI Automation** | n8n workflow ka diagram, steps ki list, aur Download JSON ka button |
+
+Sab kuch `admin.html` se badal sakte ho: projects, sections, profile, photo, banner, WhatsApp, colours.
 
 ---
 
-## 1. Files kya karti hain
+## Files
 
 | File | Kaam |
 |---|---|
-| `index.html` | Images gallery (All, style filter, Style guide, Favorites) |
-| `videos.html` | Video prompts page |
-| `admin.html` | Upload / edit / delete / settings / GitHub publish |
-| `data/site-data.js` | **Saara content yahi hai** — site name, colors, styles, images, videos |
-| `assets/css/style.css` | Design (colors, fonts, spacing) |
-| `assets/js/site.js` | Gallery ka logic (edit karne ki zaroorat nahi) |
-| `assets/js/admin.js` | Admin ka logic (edit karne ki zaroorat nahi) |
-| `assets/dummy/` | 22 dummy artworks + 2 dummy video loops |
-| `assets/uploads/` | Aapke upload yahan save honge |
+| `index.html` | Portfolio website |
+| `admin.html` | Upload / edit / delete / publish (sirf aapke liye) |
+| `data/portfolio-data.js` | **Saara content yahan hai** (profile, sections, projects) |
+| `assets/css/style.css` | Design (colours, fonts) |
+| `assets/js/site.js` | Website ka logic |
+| `assets/js/viewer3d.js` | 3D viewer (three.js) |
+| `assets/js/n8n.js` | n8n workflow diagram |
+| `assets/js/admin.js` | Admin ka logic |
+| `assets/demo/` | Dummy banner, avatar, 3 FBX furniture models, 3 n8n workflows |
+| `assets/uploads/` | Aapke uploads yahan save hote hain |
+| `videos.html` | Purana link, jo ab Motion Graphics par le jata hai |
 
 ---
 
-## 2. GitHub par live kaise karein (ek baar)
+## Purani prompt website ko is portfolio se badalna (same repo)
 
-1. github.com par **New repository** banao, naam e.g. `design-prompts`, **Public** rakho.
-2. **Add file → Upload files** → is folder ki saari files/folders drag karo → **Commit changes**.
-3. Repo **Settings → Pages** → Source: *Deploy from a branch* → Branch: `main`, folder `/ (root)` → Save.
-4. 1–2 minute baad site live: `https://USERNAME.github.io/design-prompts/`
+1. Zip extract karo, phir **portfolio** folder ke andar jao.
+2. GitHub repo kholo, **Add file → Upload files** chuno.
+3. Folder ke andar ka sab kuch select karo (**Ctrl + A**) aur drag karke chhod do. Same naam wali files (index.html, admin.html, style.css…) apne aap replace ho jayengi.
+4. Commit message `Portfolio version` likho aur **Commit changes** dabao.
+5. 1–2 minute baad site kholo: `https://vertex0000.github.io/design-prompts/`
 
----
+Purani files `data/site-data.js` aur `assets/dummy/` ab kaam ki nahi hain. Chaho to GitHub par delete kar do (file kholo, phir ⋯ → Delete file). Na bhi karo to site par koi fark nahi padega.
 
-## 3. Admin page se upload chalu karna (ek baar)
-
-1. GitHub → profile photo → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**.
-2. *Repository access*: **Only select repositories** → apna `design-prompts` repo.
-3. *Permissions → Repository → Contents*: **Read and write**. Generate karo, token copy karo.
-4. Site par `…/admin.html` kholo → **GitHub connection** tab → username, repo name, branch `main`, token daalo → **Save and test**.
-
-Token sirf aapke browser mein save hota hai. Admin page public hai, par bina token ke koi kuch change nahi kar sakta.
+Aapka GitHub token isi browser mein pehle se save hai, isliye admin mein dobara nahi daalna padega.
 
 ---
 
-## 4. Roz ka kaam (admin.html)
+## Naya project add karna (admin.html)
 
-**Nayi image add karna**
-Images tab → file drop karo → Heading, Design style, AI model, Prompt likho → **Add to timeline** → upar **Publish to GitHub**. 1–2 min mein site ke top par dikhega (naya content sabse upar aata hai).
+1. `…/design-prompts/admin.html` kholo, phir **Projects** tab par jao.
+2. **Section** chuno. Form apne aap us section ke hisaab se badal jayega:
+   - **Image Editing:** final images drop karo. Before/after dikhana ho to **Before image** mein original photo daalo.
+   - **Motion Graphics:** MP4 drop karo (50 MB se kam) **ya** YouTube/Vimeo link paste karo. Badi videos ke liye YouTube (unlisted) best hai.
+   - **3D Models:** `.fbx`, `.glb` ya `.obj` drop karo. Preview dikhega, use ghuma ke **Use this view as the cover** dabao. Cover na chuno to save karte waqt khud capture ho jata hai.
+   - **AI Automation:** n8n se workflow export karo (⋯ → Download) aur `.json` drop karo, **ya** workflow copy karke paste karo. Diagram khud ban jata hai.
+3. Title, description, software aur tags bharo. **Featured** tick karoge to project sabse pehle dikhega.
+4. **Add project** dabao, phir upar **Publish to GitHub**. 1–2 minute mein live ho jayega.
 
-**Video add karna**
-Videos tab → MP4 upload (20 MB se kam, 5–15 sec) **ya** YouTube / cloud link paste karo → prompt → Add → Publish.
+**Edit / Delete:** right side list mein har project ke saath buttons hain. Delete karke Publish karoge to uski uploaded files bhi GitHub se hat jayengi.
 
-**Edit / Delete** — list mein har item ke saath Edit aur Delete button hai. Phir Publish.
+**Naya section** (jaise "Logo Design"): **Sections** tab kholo, naam likho, type chuno (Images / Videos / 3D / n8n), Add karo aur Publish karo. ↑ button se tabs ka order badal sakte ho.
 
-**Naya design style** — Design styles tab → naam (yahi heading banega), theory, palette (`#hex, #hex`), fonts, best for → Add style → Publish. ↑ button se order badlo.
-
-**Site ka naam, logo, color, headings** — Site settings tab → Save settings → Publish.
-
-> Rule yaad rakho: admin mein kuch bhi karo, **Publish to GitHub** dabaye bina live nahi hoga.
-
----
-
-## 5. Dummy images kaise replace karein
-
-Har dummy card mein ek prompt hai. Best tareeka:
-1. Wo prompt copy karo → Nano Banana / GPT Image / Midjourney mein image banao.
-2. Admin → Images → us item par **Edit** → nayi file drop karo → Credit mein apna naam likho → Save changes → Publish.
-3. Tag `dummy` hata do.
-
-Videos: 4 videos Blender Foundation ki open movies hain (CC BY license, credit likha hua hai). 2 animated SVG dummies hain. Inhe bhi same tareeke se apni AI videos se replace karo.
+**Profile:** naam, headline, photo, banner, email, WhatsApp, Instagram/Behance/LinkedIn, skills, software, experience, accent colour aur default theme, sab yahan se badlo.
 
 ---
 
-## 6. Bina admin ke manually change karna
+## Dummy content replace karna
 
-`data/site-data.js` GitHub par kholo → pencil (Edit) icon → change karo → Commit. Structure:
+- **Image Editing:** 5 dummy before/after projects hain (random free photos from picsum.photos). Inhe apne edits se replace karo (Edit dabao, images badlo) ya delete kar do. *Office chair* aapki apni image hai.
+- **Motion Graphics:** 4 Blender open-movie videos hain (CC BY license, credit likha hai). Inhe apni reels se replace karo.
+- **3D Models:** 3 simple furniture FBX models hain (chair, table, sofa), jo maine banaye hain. Apne models daalo.
+- **AI Automation:** 3 sample n8n workflows hain. Ye real n8n mein import ho jaate hain, bas accounts connect karne padte hain.
 
-```js
-window.SITE_DATA = {
-  "config": { "siteName": "...", "accent": "#5B3DF5", ... },
-  "styles": [ { "id": "retro", "name": "Retro", "theory": "...", "palette": ["#F4E3C1"], "fonts": "...", "bestFor": "..." } ],
-  "images": [ { "id": "img-1", "title": "...", "style": "retro", "model": "Nano Banana", "ratio": "1:1",
-                "prompt": "...", "tags": ["poster"], "src": "assets/uploads/images/file.jpg", "date": "2026-09-25" } ],
-  "videos": [ { "...same fields...", "poster": "optional cover image link" } ]
-};
-```
-
-Dhyan rakho: har item ke baad comma, aur quotes `"` sahi band hon. Galti ho jaye to site khali dikhegi — Admin → **Download data file** wali purani file wapas daal do.
-
-**Fonts / design badalna**: `assets/css/style.css` ke top par `:root` mein colors aur fonts hain. Font badalne ke liye HTML files mein Google Fonts link bhi badlo.
-
-**Menu mein naya page**: `assets/js/site.js` mein `renderNav()` ke andar `links` list mein ek line add karo.
+Dummy projects par `dummy` tag laga hai. Client ko dikhane se pehle inhe hata dena.
 
 ---
 
-## 7. Claude se content add karwana (optional)
+## 3D files ke tips
 
-Bahut saare prompts ek saath add karne hon to: Claude Code / Claude Desktop mein **GitHub MCP server** connect karo, phir bolo *"design-prompts repo ke data/site-data.js mein ye 10 prompts Cyberpunk style mein add karo aur images assets/uploads/images mein daalo"*. Khud ka MCP server banane ki zaroorat nahi.
+- **FBX** chalta hai. Textures hon to FBX export karte waqt **Embed Media** on karo.
+- Sabse reliable format **GLB** hai (Blender: File → Export → glTF Binary).
+- File chhoti rakho (20 MB se kam). Heavy model mobile par slow khulega.
+- Animated FBX (jaise Mixamo) apne aap play hota hai.
 
----
+## Limits
 
-## 8. Limits
-
-- GitHub par ek file max 100 MB; admin se upload limit 50 MB video / 10 MB image. Badi video ke liye YouTube (unlisted) link best hai.
-- Repo 1 GB se chhota rakho → images WEBP/JPG mein compress karke daalo (TinyPNG, Squoosh).
-- Favorites har visitor ke apne browser mein save hote hain.
-- Local test: folder mein `python -m http.server` chalao ya VS Code *Live Server* use karo (file double-click se bhi kaam karega, bas admin publish ke liye internet chahiye).
+- Admin se upload ki limit: image 15 MB, video / 3D 50 MB. Isse badi file ho to link use karo.
+- Repo ka size 1 GB se kam rakho. Images WEBP/JPG mein compress karke daalo.
+- Site ka link badalna ho (jaise `…/portfolio`), to repo **Settings → General → Repository name** se rename karo. Uske baad admin ke GitHub tab mein naya naam daalna hoga.

@@ -1,0 +1,214 @@
+{
+  "name": "Instagram auto-post from Google Sheets",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "triggerAtHour": 10
+            }
+          ]
+        }
+      },
+      "id": "76b7f58b-842b-51b7-9d08-a352539c6e7a",
+      "name": "Every day 10 AM",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "mode": "url",
+          "value": "PASTE_SHEET_URL"
+        },
+        "sheetName": "Calendar"
+      },
+      "id": "0c453627-3488-5e6b-a4a7-f172180bb795",
+      "name": "Read content calendar",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        220,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "leftValue": "={{ $json.date }}",
+              "rightValue": "={{ $today.toFormat('yyyy-MM-dd') }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ]
+        }
+      },
+      "id": "3e11205b-3871-559f-a1df-3262643c9287",
+      "name": "Today's post?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        440,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "text",
+        "prompt": "Write a short Instagram caption with 5 hashtags for: {{ $json.topic }}"
+      },
+      "id": "69168e11-712f-5a78-a0b2-935ed6e36c41",
+      "name": "Write caption (AI)",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.5,
+      "position": [
+        680,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v20.0/IG_USER_ID/media"
+      },
+      "id": "13e04bd8-94d7-5054-aec7-d80c7dbffac7",
+      "name": "Create media container",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        900,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v20.0/IG_USER_ID/media_publish"
+      },
+      "id": "96f48526-d8a6-571c-8ff1-c686345c71e9",
+      "name": "Publish to Instagram",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1120,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "sheetName": "Calendar"
+      },
+      "id": "d74b4edc-d96e-514f-bd9f-7e41ba1d9f32",
+      "name": "Mark as posted",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1340,
+        200
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a3682636-64d3-55c6-a077-b0eea1dd5f01",
+      "name": "Nothing today",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        680,
+        420
+      ]
+    }
+  ],
+  "connections": {
+    "Every day 10 AM": {
+      "main": [
+        [
+          {
+            "node": "Read content calendar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read content calendar": {
+      "main": [
+        [
+          {
+            "node": "Today's post?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Today's post?": {
+      "main": [
+        [
+          {
+            "node": "Write caption (AI)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Nothing today",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write caption (AI)": {
+      "main": [
+        [
+          {
+            "node": "Create media container",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create media container": {
+      "main": [
+        [
+          {
+            "node": "Publish to Instagram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Publish to Instagram": {
+      "main": [
+        [
+          {
+            "node": "Mark as posted",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
