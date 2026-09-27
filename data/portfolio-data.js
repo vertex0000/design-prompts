@@ -136,6 +136,14 @@ window.PORTFOLIO = {
   ],
   "items": [
     {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
+      "title": "Lookwell Office Chair – AI Product Showcase Video",
+      "description": "An AI-generated product showcase video created for the Lookwell Office Chair by Diya Seating Solutions. The video presents the chair in a premium studio environment with cinematic lighting, smooth camera movements, close-up feature highlights, and detailed product visualization. Key elements such as ergonomic design, comfortable seating, sturdy construction, premium upholstery, and modern aesthetics are showcased through dynamic angles and professional product animation. The project focuses on creating a high-end commercial presentation suitable for social media marketing, advertisements, e-commerce platforms, and brand promotions.",
+      "video": "https://youtu.be/uAC1ae7KalA",
+      "id": "p-mujxiujz"
+    },
+    {
       "section": "social-media-posts",
       "images": [
         "assets/uploads/images/mujwvjhkolr-2.jpg"
@@ -144,27 +152,6 @@ window.PORTFOLIO = {
       "title": "photo manipulation, post apocalyptic, environment design, city destruction, cinematic artwork, visual effects, photoshop compositing, disaster scene, concept art, matte painting, urban destruction, environmental storytelling, digital art, fire effects, smoke effects, ruined city, cinematic lighting, before and after, creative retouching, movie poster design, survival artwork, VFX design, apocalypse scene, photo editing, fantasy environment, dramatic composition, digital compositing, graphic design, realistic manipulation, cinematic color grading",
       "description": "A minimalist advertising poster created for a digital marketing agency, featuring a creative paper airplane concept that casts the shadow of a commercial aircraft. The design symbolizes business growth, brand transformation, and turning audience attention into real customers. Clean typography, bold color contrast, and visual storytelling were used to deliver a memorable marketing message while maintaining a modern and professional brand identity.",
       "id": "p-mujwwa1b"
-    },
-    {
-      "section": "motion-graphics",
-      "date": "2026-09-27",
-      "video": "assets/uploads/videos/mujwv4wsm5a-1.mp4",
-      "title": "Advertising",
-      "id": "p-mujwv8qf"
-    },
-    {
-      "section": "motion-graphics",
-      "date": "2026-09-27",
-      "video": "assets/uploads/videos/mujwusr6jmk-4.mp4",
-      "title": "Advertising",
-      "id": "p-mujwv0jb"
-    },
-    {
-      "section": "motion-graphics",
-      "date": "2026-09-27",
-      "video": "assets/uploads/videos/mujwu5v2k54-3.mp4",
-      "title": "Vertex Advertising Video",
-      "id": "p-mujwuoen"
     },
     {
       "section": "image-editing",
@@ -333,13 +320,6 @@ window.PORTFOLIO = {
       "modelFormat": "fbx",
       "cover": "assets/uploads/images/mujvrvz1e5o-donut-cover.jpg",
       "id": "p-mujvrvz2"
-    },
-    {
-      "section": "motion-graphics",
-      "date": "2026-09-27",
-      "video": "assets/uploads/videos/mujvpc5qo3j-0000-0121.mp4",
-      "title": "3d Camera Lence",
-      "id": "p-mujvq0fq"
     },
     {
       "section": "social-media-posts",
