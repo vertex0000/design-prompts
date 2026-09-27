@@ -138,13 +138,260 @@ window.PORTFOLIO = {
     {
       "section": "image-editing",
       "images": [
+        "assets/uploads/images/mujw5gai4e5-chatgpt-image-sep-27-2026-07-32-46-pm.jpg"
+      ],
+      "date": "2026-05-05",
+      "cover": "assets/uploads/images/mujw5ioyxwx-chatgpt-image-sep-27-2026-07-32-46-pm.jpg",
+      "before": "assets/uploads/images/mujw5md0c8e-chatgpt-image-sep-27-2026-07-34-06-pm.jpg",
+      "title": "Cinematic Explosion Scene Manipulation",
+      "description": "A high-impact photo manipulation project transforming a peaceful desert canyon landscape into a dramatic cinematic action scene. The edit combines realistic explosion effects, volumetric smoke, dynamic lighting, atmospheric dust, and color grading while preserving the original composition and perspective. The goal was to create a believable blockbuster-style environment that enhances visual storytelling and cinematic intensity through advanced compositing techniques.",
+      "tools": [
+        "Adobe Photoshop   Adobe Camera Raw"
+      ],
+      "tags": [
+        "photo manipulation",
+        "cinematic artwork",
+        "explosion effect",
+        "visual effects",
+        "photoshop compositing",
+        "action scene",
+        "movie poster design",
+        "environment manipulation",
+        "cinematic lighting",
+        "digital art",
+        "photo editing",
+        "VFX artwork",
+        "dramatic scene",
+        "smoke effects",
+        "fire explosion",
+        "landscape manipulation",
+        "before and after",
+        "concept art",
+        "creative retouching",
+        "cinematic poster",
+        "digital compositing",
+        "visual storytelling",
+        "matte painting",
+        "graphic design",
+        "fantasy environment",
+        "action artwork",
+        "photo restoration",
+        "cinematic color grading",
+        "special effects",
+        "advanced photoshop editing"
+      ],
+      "id": "p-mujw5p1j"
+    },
+    {
+      "section": "image-editing",
+      "images": [
+        "assets/uploads/images/mujw13w4gcu-wall-paper-1-25x.jpg"
+      ],
+      "date": "2025-12-05",
+      "cover": "assets/uploads/images/mujw15yvlvc-wall-paper-1-25x.jpg",
+      "title": "Winter Serenity – Conceptual Nature Illustration",
+      "description": "A minimalist digital landscape artwork capturing the peaceful beauty of a winter forest. The composition features silhouetted trees, flying birds, and a deer moving through a snow-covered environment, creating a sense of freedom, solitude, and harmony with nature. Soft atmospheric lighting, pastel color tones, and layered depth effects were used to achieve a dreamy and cinematic visual experience suitable for wallpapers, digital art collections, and environmental storytelling.",
+      "id": "p-mujw16r2"
+    },
+    {
+      "section": "image-editing",
+      "images": [
+        "assets/uploads/images/mujvz0m59pz-logo-tea.jpg"
+      ],
+      "date": "2026-02-15",
+      "cover": "assets/uploads/images/mujvz7tc653-logo-tea.jpg",
+      "title": "Organic Green Tea Logo Design Collection",
+      "description": "A collection of custom vector logo concepts created for an organic green tea brand. The designs explore multiple visual directions, including minimalistic tea cup illustrations, organic leaf elements, vintage badge styles, modern typography, and brand identity concepts. Each logo was developed with scalability, brand recognition, and packaging compatibility in mind, making them suitable for tea products, cafés, organic food businesses, and wellness brands.",
+      "id": "p-mujvz8m7"
+    },
+    {
+      "section": "3d-models",
+      "date": "2026-09-27",
+      "model": "assets/uploads/models/mujvvfhjah9-sl2.fbx",
+      "title": "2d House",
+      "modelFormat": "fbx",
+      "cover": "assets/uploads/images/mujvvl51v3l-2d-house-cover.jpg",
+      "id": "p-mujvvl52"
+    },
+    {
+      "section": "3d-models",
+      "date": "2026-09-27",
+      "model": "assets/uploads/models/mujvtrajis9-h1d.fbx",
+      "title": "Wepon fbx",
+      "modelFormat": "fbx",
+      "cover": "assets/uploads/images/mujvu6un68b-wepon-fbx-cover.jpg",
+      "id": "p-mujvu6uo"
+    },
+    {
+      "section": "3d-models",
+      "date": "2026-09-27",
+      "model": "assets/uploads/models/mujvsbmn04z-m243.fbx",
+      "title": "M24",
+      "modelFormat": "fbx",
+      "cover": "assets/uploads/images/mujvstw7gl5-m24-cover.jpg",
+      "id": "p-mujvstw8"
+    },
+    {
+      "section": "3d-models",
+      "date": "2026-09-27",
+      "model": "assets/uploads/models/mujvrfm7mhk-donut-2.fbx",
+      "title": "Donut",
+      "modelFormat": "fbx",
+      "cover": "assets/uploads/images/mujvrvz1e5o-donut-cover.jpg",
+      "id": "p-mujvrvz2"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-27",
+      "video": "assets/uploads/videos/mujvpc5qo3j-0000-0121.mp4",
+      "title": "3d Camera Lence",
+      "id": "p-mujvq0fq"
+    },
+    {
+      "section": "social-media-posts",
+      "images": [
+        "assets/uploads/images/mujvnsazed6-ded-2.jpg"
+      ],
+      "date": "2026-09-27",
+      "title": "Porsche GT2 RS Automotive Poster Design",
+      "description": "A premium automotive poster design featuring the iconic Porsche GT2 RS in a sleek monochrome composition. The artwork combines luxury branding, minimalist typography, dynamic motion effects, and studio-style lighting to create a high-end visual identity piece. Special attention was given to composition balance, depth, and contrast, highlighting the vehicle's performance-focused design while maintaining a clean and sophisticated aesthetic suitable for print and digital campaigns.",
+      "tools": [
+        "Adobe Photoshop   Adobe Illustrator"
+      ],
+      "tags": [
+        "porsche",
+        "porsche gt2 rs",
+        "automotive poster",
+        "car poster design",
+        "luxury car",
+        "sports car",
+        "automotive artwork",
+        "photoshop design",
+        "typography design",
+        "advertising design",
+        "vehicle branding",
+        "automotive marketing",
+        "premium poster",
+        "graphic design",
+        "car photography",
+        "motion effects",
+        "luxury branding",
+        "poster artwork",
+        "automotive creative",
+        "digital design",
+        "car enthusiast",
+        "modern poster",
+        "visual design",
+        "commercial artwork",
+        "high performance car"
+      ],
+      "id": "p-mujvo82m"
+    },
+    {
+      "section": "image-editing",
+      "images": [
+        "assets/uploads/images/mujvlycz7tj-untitled-1.jpg"
+      ],
+      "date": "2026-09-27",
+      "cover": "assets/uploads/images/mujvm1i0v9n-untitled-1.jpg",
+      "title": "Vintage Camera Vector Product Rebuild",
+      "description": "A detailed vector reconstruction of a classic Canon-inspired rangefinder camera, created from individual components and assembled into a clean product design presentation. The project showcases precision vector illustration, exploded-view composition, realistic material rendering, and attention to mechanical details. Each element, including the lens, body panels, controls, and textures, was recreated to achieve a premium product visualization suitable for branding, packaging, and product development presentations.",
+      "tools": [
+        "Adobe Illustrator   Adobe Photoshop"
+      ],
+      "tags": [
+        "vector design",
+        "product design",
+        "camera illustration",
+        "vector rebuild",
+        "exploded view",
+        "industrial design",
+        "product visualization",
+        "adobe illustrator",
+        "technical illustration",
+        "vector artwork",
+        "product rendering",
+        "camera design",
+        "branding design",
+        "digital illustration",
+        "graphic design",
+        "precision drawing",
+        "mechanical design",
+        "concept design",
+        "product presentation",
+        "creative design"
+      ],
+      "id": "p-mujvmcoe"
+    },
+    {
+      "section": "image-editing",
+      "images": [
+        "assets/uploads/images/mujvhc727r8-chatgpt-image-sep-27-2026-07-13-51-pm.jpg"
+      ],
+      "date": "2026-09-27",
+      "before": "assets/uploads/images/mujvhdr6fiv-chatgpt-image-sep-27-2026-07-05-01-pm.jpg",
+      "cover": "assets/uploads/images/mujvhfby6gr-chatgpt-image-sep-27-2026-07-13-51-pm.jpg",
+      "title": "Abandoned Aircraft Wreck Restoration",
+      "description": "This photo manipulation project focuses on restoring an abandoned and damaged landscape scene into a clean, natural environment. The original image contained aircraft wreckage, a deteriorated wooden structure, and visual clutter. Using advanced retouching, object removal, content-aware editing, and color correction techniques, the scene was transformed into a peaceful winter landscape while preserving realistic lighting, shadows, and atmospheric depth.",
+      "tools": [
+        "Photoshop",
+        "Lightroom"
+      ],
+      "tags": [
+        "photo manipulation",
+        "object removal",
+        "restoration",
+        "landscape editing",
+        "photoshop editing",
+        "environment cleanup",
+        "photo retouching",
+        "winter landscape",
+        "digital art",
+        "image restoration",
+        "content aware fill",
+        "cinematic editing",
+        "realistic composite",
+        "color correction",
+        "creative retouching",
+        "outdoor photography",
+        "nature scene",
+        "visual effects",
+        "before and after edit",
+        "graphic design"
+      ],
+      "id": "p-mujviqbj"
+    },
+    {
+      "section": "image-editing",
+      "images": [
         "assets/uploads/images/mujvc6730rr-001.jpg"
       ],
       "date": "2026-09-27",
       "before": "assets/uploads/images/mujvc7uduxc-022.jpg",
       "cover": "assets/uploads/images/mujvc9hzmde-001.jpg",
-      "title": "colour gra",
-      "id": "p-mujvcocm"
+      "title": "Color Grading & Cinematic Car Artwork",
+      "id": "p-mujvcocm",
+      "description": "A vibrant automotive digital artwork featuring a racing car enhanced with cinematic color grading, dramatic lighting, and high-contrast visual effects. The project focuses on creating a bold and eye-catching composition using advanced photo manipulation techniques, dynamic colors, and professional retouching to achieve a premium motorsport-inspired look.",
+      "tools": [
+        "Adobe Photoshop   Adobe Camera Raw"
+      ],
+      "tags": [
+        "car editing",
+        "color grading",
+        "automotive design",
+        "photoshop manipulation",
+        "cinematic edit",
+        "sports car",
+        "digital artwork",
+        "photo retouching",
+        "lighting effects",
+        "poster design",
+        "creative editing",
+        "graphic design",
+        "car poster",
+        "racing car",
+        "visual effects"
+      ]
     },
     {
       "section": "social-media-posts",
