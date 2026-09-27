@@ -198,7 +198,7 @@ window.PORTFOLIO = {
         "assets/uploads/images/mujwvjhkolr-2.jpg"
       ],
       "date": "2026-09-03",
-      "title": "photo manipulation, post apocalyptic, environment design, city destruction, cinematic artwork, visual effects, photoshop compositing, disaster scene, concept art, matte painting, urban destruction, environmental storytelling, digital art, fire effects, smoke effects, ruined city, cinematic lighting, before and after, creative retouching, movie poster design, survival artwork, VFX design, apocalypse scene, photo editing, fantasy environment, dramatic composition, digital compositing, graphic design, realistic manipulation, cinematic color grading",
+      "title": "Ad",
       "description": "A minimalist advertising poster created for a digital marketing agency, featuring a creative paper airplane concept that casts the shadow of a commercial aircraft. The design symbolizes business growth, brand transformation, and turning audience attention into real customers. Clean typography, bold color contrast, and visual storytelling were used to deliver a memorable marketing message while maintaining a modern and professional brand identity.",
       "id": "p-mujwwa1b"
     },
