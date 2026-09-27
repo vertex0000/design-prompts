@@ -4,7 +4,18 @@ window.PORTFOLIO = {
     "accent": "#2E8BFF",
     "defaultTheme": "dark",
     "showAdminLink": false,
-    "footerText": "© 2026 Shivam Waghmare. All work shown with client permission."
+    "footerText": "© 2026 Shivam Waghmare. All work shown with client permission.",
+    "showChatButton": true,
+    "chatButtonText": "Chat with us",
+    "showServices": true,
+    "contactTitle": "Let's talk about your project",
+    "contactIntro": "Tell me what you need. I usually reply within a few hours.",
+    "budgets": [
+      "Under ₹5,000",
+      "₹5,000 – ₹15,000",
+      "₹15,000 – ₹50,000",
+      "Above ₹50,000"
+    ]
   },
   "profile": {
     "name": "Shivam Waghmare",
@@ -20,7 +31,7 @@ window.PORTFOLIO = {
     "behance": "",
     "linkedin": "",
     "youtube": "",
-    "hireText": "Hire me",
+    "hireText": "Contact us",
     "skills": [
       "Photo editing and retouching",
       "Product visuals",
@@ -56,6 +67,12 @@ window.PORTFOLIO = {
         "company": "Moutix (jewellery)",
         "period": "Ongoing"
       }
+    ],
+    "heroStyle": "map",
+    "highlights": [
+      "18 months in-house design experience",
+      "Photo, video, 3D and automation",
+      "Based in Mumbai, working worldwide"
     ]
   },
   "sections": [
@@ -177,7 +194,11 @@ window.PORTFOLIO = {
         "before-after",
         "dummy"
       ],
-      "date": "2026-09-17"
+      "date": "2026-09-17",
+      "ai": [
+        "Adobe Firefly"
+      ],
+      "prompt": "Warm lifestyle product photo, soft window light, clean beige background, premium catalogue look"
     },
     {
       "id": "p-edit-5",
@@ -204,7 +225,6 @@ window.PORTFOLIO = {
       "title": "Big Buck Bunny (sample reel)",
       "description": "Sample video used as a placeholder. Replace it with your own motion graphics or ad edit.",
       "video": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      "cover": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg",
       "credit": "Blender Foundation, CC BY 3.0",
       "tools": [
         "After Effects",
@@ -222,7 +242,6 @@ window.PORTFOLIO = {
       "title": "Elephants Dream (sample reel)",
       "description": "Sample video used as a placeholder. Replace it with your own motion graphics or ad edit.",
       "video": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      "cover": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg",
       "credit": "Blender Foundation, CC BY 2.5",
       "tools": [
         "After Effects",
@@ -240,7 +259,6 @@ window.PORTFOLIO = {
       "title": "Sintel (sample reel)",
       "description": "Sample video used as a placeholder. Replace it with your own motion graphics or ad edit.",
       "video": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-      "cover": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/Sintel.jpg",
       "credit": "Blender Foundation, CC BY 3.0",
       "tools": [
         "After Effects",
@@ -258,7 +276,6 @@ window.PORTFOLIO = {
       "title": "Tears of Steel (sample reel)",
       "description": "Sample video used as a placeholder. Replace it with your own motion graphics or ad edit.",
       "video": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-      "cover": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/TearsOfSteel.jpg",
       "credit": "Blender Foundation, CC BY 3.0",
       "tools": [
         "After Effects",
@@ -336,7 +353,10 @@ window.PORTFOLIO = {
         "automation",
         "dummy"
       ],
-      "date": "2026-09-22"
+      "date": "2026-09-22",
+      "ai": [
+        "OpenAI GPT"
+      ]
     },
     {
       "id": "p-flow-2",
@@ -353,7 +373,10 @@ window.PORTFOLIO = {
         "automation",
         "dummy"
       ],
-      "date": "2026-09-21"
+      "date": "2026-09-21",
+      "ai": [
+        "OpenAI GPT"
+      ]
     },
     {
       "id": "p-flow-3",
@@ -370,7 +393,10 @@ window.PORTFOLIO = {
         "automation",
         "dummy"
       ],
-      "date": "2026-09-20"
+      "date": "2026-09-20",
+      "ai": [
+        "OpenAI GPT"
+      ]
     }
   ]
 };

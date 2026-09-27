@@ -97,9 +97,11 @@
         </div>
 
         <div class="row">
-          <div class="field"><label for="pTools">Software</label><input id="pTools" placeholder="Photoshop, After Effects"></div>
+          <div class="field"><label for="pTools">Software used</label><input id="pTools" placeholder="Photoshop, After Effects, Blender"></div>
           <div class="field"><label for="pTags">Tags</label><input id="pTags" placeholder="furniture, ad"></div>
         </div>
+        <div class="field"><label for="pAi">Made with AI (optional)</label><input id="pAi" placeholder="Midjourney, Runway, Nano Banana"><small>Which AI tools did you use? Separate with commas.</small></div>
+        <div class="field"><label for="pPrompt">AI prompt used (optional)</label><textarea id="pPrompt" style="min-height:70px" placeholder="Shown on the project page with a copy button"></textarea></div>
         <div class="row">
           <div class="field"><label for="pClient">Client (optional)</label><input id="pClient"></div>
           <div class="field"><label for="pDate">Date</label><input id="pDate" type="date"></div>
@@ -152,6 +154,8 @@
         <div class="field"><label for="prHead">Headline</label><input id="prHead"></div>
         <div class="field"><label for="prAvail">Availability line</label><input id="prAvail" placeholder="Available for freelance projects"><small>Leave empty to hide it.</small></div>
         <div class="field"><label for="prBio">About me</label><textarea id="prBio" style="min-height:130px"></textarea><small>Leave an empty line between paragraphs.</small></div>
+        <div class="field"><label for="prHigh">Highlights under your name</label><input id="prHigh" placeholder="5+ years experience, 100+ projects"><small>Short badges, separated by commas. Leave empty to hide.</small></div>
+        <div class="field"><label for="prHero">Header background</label><select id="prHero"><option value="map">Glowing world map</option><option value="image">My banner image</option></select></div>
         <div class="row">
           <div class="field"><span class="lbl">Profile photo</span><div class="drop" data-drop="avatar" tabindex="0">Drop a square photo</div><div class="thumbs" id="avatarThumbs"></div></div>
           <div class="field"><span class="lbl">Banner</span><div class="drop" data-drop="banner" tabindex="0">Drop a wide image (1800×440)</div><div class="thumbs" id="bannerThumbs"></div></div>
@@ -175,12 +179,20 @@
         <h2 style="margin-top:10px">Site</h2>
         <div class="row">
           <div class="field"><label for="cTitle">Browser tab title</label><input id="cTitle"></div>
-          <div class="field"><label for="prHire">Hire button text</label><input id="prHire"></div>
+          <div class="field"><label for="prHire">Contact button text</label><input id="prHire" placeholder="Contact us"></div>
         </div>
         <div class="row">
           <div class="field"><label for="cAccent">Accent colour</label><input id="cAccent" type="color" style="height:40px;padding:3px"></div>
           <div class="field"><label for="cTheme">Default theme</label><select id="cTheme"><option value="dark">Dark (black)</option><option value="light">Day (white)</option></select></div>
         </div>
+        <div class="field"><label for="cCTitle">Contact form heading</label><input id="cCTitle"></div>
+        <div class="field"><label for="cCIntro">Contact form intro</label><input id="cCIntro"></div>
+        <div class="field"><label for="cBudgets">Budget options</label><input id="cBudgets"><small>Separate with commas. Leave empty to hide the budget question.</small></div>
+        <div class="row">
+          <div class="field"><label for="cChat">Floating WhatsApp button text</label><input id="cChat" placeholder="Chat with us"></div>
+          <div class="field"><span class="lbl">&nbsp;</span><label class="check"><input type="checkbox" id="cChatOn"> Show the floating WhatsApp button</label></div>
+        </div>
+        <label class="check" style="margin-bottom:14px"><input type="checkbox" id="cSvc"> Show service cards above “All work”</label>
         <div class="field"><label for="cFoot">Footer text</label><input id="cFoot"></div>
         <label class="check" style="margin-bottom:16px"><input type="checkbox" id="cAdmin"> Show a “Manage portfolio” link in the footer</label>
         <button class="btn btn-primary" type="submit">Save profile</button>

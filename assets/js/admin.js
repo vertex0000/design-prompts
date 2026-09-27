@@ -220,7 +220,7 @@
     if (!title) { $('#pTitle').focus(); return alert('Give the project a title.'); }
     const item = {
       id: editId || 'p-' + Date.now().toString(36), section, title, description: $('#pDesc').value.trim(),
-      images: F.images.slice(), cover: F.cover, tools: list($('#pTools').value), tags: list($('#pTags').value),
+      images: F.images.slice(), cover: F.cover, tools: list($('#pTools').value), ai: list($('#pAi').value), prompt: $('#pPrompt').value.trim(), tags: list($('#pTags').value),
       client: $('#pClient').value.trim(), credit: $('#pCredit').value.trim(), date: $('#pDate').value, featured: $('#pFeatured').checked
     };
     if (t === 'image') {
@@ -293,7 +293,7 @@
       const i = W.items.find(x => x.id === ed.dataset.edit); if (!i) return;
       resetForm(); editId = i.id;
       $('#pSection').value = i.section; $('#pTitle').value = i.title || ''; $('#pDesc').value = i.description || '';
-      $('#pTools').value = (i.tools || []).join(', '); $('#pTags').value = (i.tags || []).join(', ');
+      $('#pTools').value = (i.tools || []).join(', '); $('#pAi').value = (i.ai || []).join(', '); $('#pPrompt').value = i.prompt || ''; $('#pTags').value = (i.tags || []).join(', ');
       $('#pClient').value = i.client || ''; $('#pCredit').value = i.credit || ''; $('#pDate').value = (i.date || '').slice(0, 10); $('#pFeatured').checked = !!i.featured;
       F = { images: (i.images || []).slice(), before: i.before || '', video: '', model: '', workflow: i.workflow || '', cover: i.cover || '' };
       const t = typeOf(i.section);
@@ -364,7 +364,9 @@
     set('#prEmail', p.email); set('#prWa', p.whatsapp); set('#prIg', p.instagram); set('#prBe', p.behance); set('#prIn', p.linkedin); set('#prYt', p.youtube);
     set('#prSkills', (p.skills || []).join(', ')); set('#prSoft', (p.software || []).join(', '));
     set('#prExp', (p.experience || []).map(x => [x.role, x.company, x.period].filter(Boolean).join(' | ')).join('\n'));
-    set('#prHire', p.hireText || 'Hire me'); set('#cTitle', c.siteTitle); set('#cAccent', c.accent || '#2E8BFF'); set('#cTheme', c.defaultTheme || 'dark'); set('#cFoot', c.footerText);
+    set('#prHire', p.hireText || 'Contact us'); set('#prHigh', (p.highlights || []).join(', ')); set('#prHero', p.heroStyle || 'map');
+    set('#cCTitle', c.contactTitle); set('#cCIntro', c.contactIntro); set('#cBudgets', (c.budgets || []).join(', ')); set('#cChat', c.chatButtonText || 'Chat with us');
+    $('#cChatOn').checked = c.showChatButton !== false; $('#cSvc').checked = c.showServices !== false; set('#cTitle', c.siteTitle); set('#cAccent', c.accent || '#2E8BFF'); set('#cTheme', c.defaultTheme || 'dark'); set('#cFoot', c.footerText);
     $('#cAdmin').checked = !!c.showAdminLink;
     renderProfileThumbs();
   }
@@ -374,10 +376,11 @@
     Object.assign(W.profile, {
       name: v('#prName'), location: v('#prLoc'), headline: v('#prHead'), availability: v('#prAvail'), bio: $('#prBio').value.trim(),
       email: v('#prEmail'), whatsapp: v('#prWa').replace(/\D/g, ''), instagram: v('#prIg'), behance: v('#prBe'), linkedin: v('#prIn'), youtube: v('#prYt'),
-      skills: list(v('#prSkills')), software: list(v('#prSoft')), hireText: v('#prHire') || 'Hire me',
+      skills: list(v('#prSkills')), software: list(v('#prSoft')), hireText: v('#prHire') || 'Contact us', highlights: list(v('#prHigh')), heroStyle: $('#prHero').value,
       experience: $('#prExp').value.split('\n').map(l => l.split('|').map(x => x.trim())).filter(a => a[0]).map(([role, company, period]) => ({ role, company: company || '', period: period || '' }))
     });
-    Object.assign(W.config, { siteTitle: v('#cTitle'), accent: $('#cAccent').value, defaultTheme: $('#cTheme').value, footerText: v('#cFoot'), showAdminLink: $('#cAdmin').checked });
+    Object.assign(W.config, { siteTitle: v('#cTitle'), accent: $('#cAccent').value, defaultTheme: $('#cTheme').value, footerText: v('#cFoot'), showAdminLink: $('#cAdmin').checked,
+      contactTitle: v('#cCTitle'), contactIntro: v('#cCIntro'), budgets: list(v('#cBudgets')), chatButtonText: v('#cChat') || 'Chat with us', showChatButton: $('#cChatOn').checked, showServices: $('#cSvc').checked });
     document.documentElement.style.setProperty('--accent', W.config.accent);
     setDirty(true); toast('Profile saved. Publish to make it live.');
   });

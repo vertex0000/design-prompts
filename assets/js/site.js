@@ -44,23 +44,21 @@
   const vimeoId = u => { const m = String(u || '').match(/vimeo\.com\/(?:video\/)?(\d+)/); return m ? m[1] : null; };
   const fmtDate = d => { if (!d) return ''; const t = new Date(d); return isNaN(t) ? d : t.toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' }); };
   const waLink = (msg) => P.whatsapp ? `https://wa.me/${String(P.whatsapp).replace(/\D/g, '')}${msg ? '?text=' + encodeURIComponent(msg) : ''}` : '';
-  const hireHref = () => P.whatsapp ? waLink(`Hi ${P.name || ''}, I saw your portfolio and want to discuss a project.`) : P.email ? `mailto:${P.email}` : '#/about';
   const sorted = list => list.slice().sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || String(b.date || '').localeCompare(String(a.date || '')));
   const wfCache = {};
   const getWorkflow = src => (wfCache[src] ||= fetch(src).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }));
 
   /* ---------- Shell ---------- */
+  const CTA = () => P.hireText || 'Contact us';
   function applyShell() {
     if (C.accent) document.documentElement.style.setProperty('--accent', C.accent);
     document.title = C.siteTitle || P.name || 'Portfolio';
     $('#logo').innerHTML = `${P.avatar ? `<img src="${esc(P.avatar)}" alt="">` : ''}<span>${esc(P.name || 'Portfolio')}</span>`;
-    $('#banner').style.backgroundImage = P.banner ? `url("${P.banner}")` : '';
-    $('#hireTop').textContent = P.hireText || 'Hire me';
-    $('#hireTop').href = hireHref();
-    if (/^https?:/.test($('#hireTop').href)) $('#hireTop').target = '_blank';
+    $('#hireTop').textContent = CTA();
     const socials = [
       ['instagram', I.ig, 'Instagram'], ['behance', I.be, 'Behance'], ['linkedin', I.in, 'LinkedIn'], ['youtube', I.yt, 'YouTube']
     ].filter(([k]) => P[k]).map(([k, ic, n]) => `<a class="icon-btn" href="${esc(P[k])}" target="_blank" rel="noopener" aria-label="${n}">${ic}</a>`).join('');
+    const trust = (P.highlights || []).map(t => `<span>${esc(t)}</span>`).join('');
     $('#profile').innerHTML = `
       ${P.avatar ? `<img class="avatar" src="${esc(P.avatar)}" alt="${esc(P.name)}">` : ''}
       <div>
@@ -70,15 +68,48 @@
           ${P.location ? `<span>${I.pin}${esc(P.location)}</span>` : ''}
           ${P.availability ? `<span class="avail">${esc(P.availability)}</span>` : ''}
         </div>
+        ${trust ? `<div class="trust">${trust}</div>` : ''}
       </div>
       <div class="profile-actions">
         ${socials ? `<div class="socials">${socials}</div>` : ''}
-        ${P.email ? `<a class="btn" href="mailto:${esc(P.email)}">${I.mail}Email</a>` : ''}
-        ${P.whatsapp ? `<a class="btn" href="${esc(waLink())}" target="_blank" rel="noopener">${I.wa}WhatsApp</a>` : ''}
-        <a class="btn btn-primary" href="${esc(hireHref())}" ${/^https?:/.test(hireHref()) ? 'target="_blank" rel="noopener"' : ''}>${esc(P.hireText || 'Hire me')}</a>
+        ${P.whatsapp ? `<a class="btn btn-lg" href="${esc(waLink(`Hi ${P.name || ''}, I saw your portfolio.`))}" target="_blank" rel="noopener">${I.wa}WhatsApp</a>` : ''}
+        <button class="btn btn-primary btn-lg" data-contact>${esc(CTA())}</button>
       </div>`;
+    const useImage = P.heroStyle === 'image' && P.banner;
+    $('#heroBg').hidden = !useImage;
+    if (useImage) $('#heroBg').style.backgroundImage = `url("${P.banner}")`;
+    else loadMap();
+    if (P.whatsapp && C.showChatButton !== false) {
+      const fab = $('#fab');
+      fab.href = waLink(`Hi ${P.name || ''}, I saw your portfolio and want to discuss a project.`);
+      fab.innerHTML = `${I.wa}<span>${esc(C.chatButtonText || 'Chat with us')}</span>`;
+      fab.hidden = false;
+    }
     $('#footText').textContent = C.footerText || '';
     $('#footLinks').innerHTML = C.showAdminLink ? '<a href="admin.html">Manage portfolio</a>' : '';
+  }
+
+  /* ---------- Glowing world map (every country, name + currency) ---------- */
+  function loadMap() {
+    const box = $('#heroMap');
+    fetch(new URL('../map/world-map.svg', HERE)).then(r => r.ok ? r.text() : Promise.reject(r.status)).then(svg => {
+      box.innerHTML = svg;
+      const tip = $('#mapTip');
+      const paths = [...box.querySelectorAll('.land path')];
+      box.addEventListener('pointermove', e => {
+        const p = e.target.closest('.land path');
+        if (!p) { tip.hidden = true; return; }
+        tip.innerHTML = `${p.dataset.s ? `<b>${esc(p.dataset.s)}</b>` : ''}${esc(p.dataset.n)}${p.dataset.c ? `<span>${esc(p.dataset.c)}</span>` : ''}`;
+        tip.style.left = e.clientX + 'px'; tip.style.top = e.clientY + 'px'; tip.hidden = false;
+      });
+      box.addEventListener('pointerleave', () => { tip.hidden = true; });
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      setInterval(() => {
+        if (document.hidden) return;
+        const p = paths[Math.floor(Math.random() * paths.length)];
+        p.classList.add('hot'); setTimeout(() => p.classList.remove('hot'), 2400);
+      }, 700);
+    }).catch(() => {});
   }
 
   function renderNav(active) {
@@ -109,6 +140,7 @@
       ${tileMedia(it)}
       ${it.featured ? '<span class="star">Featured</span>' : ''}
       ${badge ? `<span class="badge">${badge}</span>` : ''}
+      ${(it.ai || []).length ? '<span class="ai-badge">AI</span>' : ''}
       <span class="tile-info"><b>${esc(it.title)}</b><span>${esc(sectionOf(it).title)}</span></span>
     </a>`;
   }
@@ -125,13 +157,17 @@
     renderNav(sectionId || 'all');
     const s = SECTIONS.find(x => x.id === sectionId);
     let list = sectionId ? ITEMS.filter(i => i.section === sectionId) : ITEMS;
-    if (q) list = ITEMS.filter(i => [i.title, i.description, (i.tags || []).join(' '), (i.tools || []).join(' '), sectionOf(i).title].join(' ').toLowerCase().includes(q));
+    if (q) list = ITEMS.filter(i => [i.title, i.description, (i.tags || []).join(' '), (i.tools || []).join(' '), (i.ai || []).join(' '), sectionOf(i).title].join(' ').toLowerCase().includes(q));
     list = sorted(list);
     const head = q ? `<div class="section-head"><div><h2>Results for “${esc(q)}”</h2><p>${list.length} project${list.length === 1 ? '' : 's'}</p></div></div>`
       : s ? `<div class="section-head"><div><h2>${esc(s.title)}</h2>${s.blurb ? `<p>${esc(s.blurb)}</p>` : ''}</div></div>`
       : `<div class="section-head"><div><h2>All work</h2></div></div>`;
     const empty = q ? `No project matches “${esc(q)}”.` : 'No projects here yet.';
-    $('#main').innerHTML = head + `<div class="grid">${list.length ? list.map(tile).join('') : `<div class="empty">${empty}</div>`}</div>`;
+    const services = !sectionId && !q && C.showServices !== false ? `<div class="services">${SECTIONS.map(x => {
+      const n = ITEMS.filter(i => i.section === x.id).length;
+      return `<a class="svc" href="#/s/${esc(x.id)}"><span class="ic">${TYPE_ICON[x.type] || I.images}</span><b>${esc(x.title)}</b>${x.blurb ? `<p>${esc(x.blurb)}</p>` : ''}<span>View ${n} project${n === 1 ? '' : 's'}</span></a>`;
+    }).join('')}</div>` : '';
+    $('#main').innerHTML = services + head + `<div class="grid">${list.length ? list.map(tile).join('') : `<div class="empty">${empty}</div>`}</div>`;
     hydrateTiles($('#main'));
   }
 
@@ -151,7 +187,12 @@
         ${exp ? `<div class="card"><h2>Experience</h2><ul class="exp">${exp}</ul></div>` : ''}
       </div>
       <div>
-        <div class="card"><h2>Let's work together</h2><p style="color:var(--muted)">Tell me about your project and I'll reply within a day.</p><div class="contact-list">${contacts}</div></div>
+        <div class="card"><h2>Let's work together</h2><p style="color:var(--muted)">${esc(C.contactIntro || "Tell me about your project and I'll reply within a day.")}</p><button class="btn btn-primary btn-lg" data-contact style="width:100%;margin-bottom:12px">${esc(CTA())}</button><div class="contact-list">${contacts}</div></div>
+        <div class="card"><h2>How we work</h2><ol class="steps">
+          <li><div><b>Share your idea</b><span>Send the brief, references and deadline on WhatsApp or email.</span></div></li>
+          <li><div><b>Get the first draft</b><span>You receive a first version with a clear price and timeline.</span></div></li>
+          <li><div><b>Revisions and delivery</b><span>We refine it together, then you get the final files.</span></div></li>
+        </ol></div>
         ${(P.software || []).length ? `<div class="card"><h2>Software</h2><div class="chips">${P.software.map(s => `<span class="chip">${esc(s)}</span>`).join('')}</div></div>` : ''}
       </div>
     </div>`;
@@ -161,7 +202,7 @@
   let v3d = null;
   function closeViewer() {
     if (v3d) { v3d.dispose(); v3d = null; }
-    const v = $('#viewer'); v.hidden = true; v.innerHTML = ''; document.body.style.overflow = '';
+    const v = $('#viewer'); v.hidden = true; v.innerHTML = ''; document.body.style.overflow = ''; document.body.classList.remove('viewing');
   }
   function baSlider(after, before) {
     return `<div class="ba" style="--pos:50%">
@@ -222,17 +263,19 @@
         <div class="viewer-media">${media || '<div class="empty">No media added yet.</div>'}</div>
         <aside class="viewer-side">
           <div class="artist">${P.avatar ? `<img src="${esc(P.avatar)}" alt="">` : ''}<div><b>${esc(P.name || '')}</b><span>${esc(P.headline || '')}</span></div></div>
-          <a class="btn btn-primary" href="${esc(hireHref())}" ${/^https?:/.test(hireHref()) ? 'target="_blank" rel="noopener"' : ''}>${esc(P.hireText || 'Hire me')}</a>
           <h1 id="vTitle">${esc(it.title)}</h1>
           ${it.description ? `<p>${esc(it.description)}</p>` : ''}
+          <div class="cta-card"><b>Want something like this?</b><p>Share your idea and get a quote on WhatsApp.</p><button class="btn btn-primary btn-lg" data-contact data-service="${esc(s.title)}" data-about="${esc(it.title)}">${esc(CTA())}</button></div>
           <div id="extra"></div>
           ${kv.length ? `<dl class="kv">${kv.map(r => `<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join('')}</dl>` : ''}
-          ${(it.tools || []).length ? `<div><div class="label">Software</div><div class="chips">${it.tools.map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div></div>` : ''}
+          ${(it.tools || []).length ? `<div><div class="label">Made with</div><div class="chips">${it.tools.map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div></div>` : ''}
+          ${(it.ai || []).length ? `<div><div class="label">AI tools used</div><div class="chips">${it.ai.map(x => `<span class="chip ai">${esc(x)}</span>`).join('')}</div></div>` : ''}
+          ${it.prompt ? `<div><div class="label">AI prompt</div><div class="prompt-box">${esc(it.prompt)}<button class="btn" data-act="copy-prompt">${I.copy}Copy</button></div></div>` : ''}
           ${(it.tags || []).length ? `<div><div class="label">Tags</div><div class="chips">${it.tags.map(x => `<span class="chip">#${esc(x)}</span>`).join('')}</div></div>` : ''}
           ${more.length ? `<div><div class="label">More ${esc(s.title)}</div><div class="more">${more.map(tile).join('')}</div></div>` : ''}
         </aside>
       </div>`;
-    v.hidden = false; v.scrollTop = 0; document.body.style.overflow = 'hidden';
+    v.hidden = false; v.scrollTop = 0; document.body.style.overflow = 'hidden'; document.body.classList.add('viewing');
     hydrateTiles(v);
     v.tabIndex = -1; v.focus({ preventScroll: true });
 
@@ -282,6 +325,7 @@
     if (a) {
       if (a.dataset.act === 'close') location.hash = lastList;
       if (a.dataset.act === 'copy-link') copy(location.href, 'Link copied');
+      if (a.dataset.act === 'copy-prompt') { const it = ITEMS.find(i => location.hash.endsWith('/' + i.id)); if (it) copy(it.prompt, 'Prompt copied'); }
       if (a.dataset.act === 'copy-wf') {
         const it = ITEMS.find(i => location.hash.endsWith('/' + i.id));
         if (it) getWorkflow(it.workflow).then(wf => copy(JSON.stringify(wf, null, 2), 'Workflow JSON copied'));
@@ -334,6 +378,71 @@
   }
   let tt;
   function toast(m) { const el = $('#toast'); el.textContent = m; el.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => el.classList.remove('show'), 1700); }
+
+  /* ---------- Contact sheet ---------- */
+  function openContact(service, about) {
+    const sh = $('#sheet');
+    const phone = String(P.whatsapp || '').replace(/\D/g, '');
+    const opts = [...SECTIONS.map(x => x.title), 'Something else'];
+    const budgets = C.budgets ?? ['Under ₹5,000', '₹5,000 – ₹15,000', '₹15,000 – ₹50,000', 'Above ₹50,000'];
+    sh.innerHTML = `<div class="sheet-box">
+      <button class="icon-btn close" data-close aria-label="Close">${I.close}</button>
+      <h2 id="sheetTitle">${esc(C.contactTitle || "Let's talk about your project")}</h2>
+      <p>${esc(C.contactIntro || "Tell me what you need. I usually reply within a few hours.")}</p>
+      <div class="quick">
+        ${phone ? `<a class="wa" href="${esc(waLink(`Hi ${P.name || ''}, I saw your portfolio.`))}" target="_blank" rel="noopener">${I.wa}WhatsApp</a>` : ''}
+        ${P.email ? `<a href="mailto:${esc(P.email)}">${I.mail}Email</a>` : ''}
+        ${phone ? `<a href="tel:+${phone}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>` : ''}
+      </div>
+      <form class="cform" id="cform">
+        <div class="row2">
+          <label>Your name<input name="name" required autocomplete="name" placeholder="Your name"></label>
+          <label>Business (optional)<input name="biz" autocomplete="organization" placeholder="Brand or company"></label>
+        </div>
+        <div class="row2">
+          <label>What do you need?<select name="service">${opts.map(o => `<option ${o === service ? 'selected' : ''}>${esc(o)}</option>`).join('')}</select></label>
+          ${budgets.length ? `<label>Budget (optional)<select name="budget"><option value="">Not sure yet</option>${budgets.map(b => `<option>${esc(b)}</option>`).join('')}</select></label>` : ''}
+        </div>
+        <label>Project details<textarea name="msg" placeholder="What is it for, any references, and when do you need it?">${about ? esc(`I liked your project “${about}” and want something similar.`) : ''}</textarea></label>
+        <div class="acts">
+          ${phone ? `<button class="btn btn-primary btn-lg" type="submit" name="via" value="wa">${I.wa}Send on WhatsApp</button>` : ''}
+          ${P.email ? `<button class="btn btn-lg" type="submit" name="via" value="mail">${I.mail}Send by email</button>` : ''}
+        </div>
+      </form></div>`;
+    sh.hidden = false; document.body.style.overflow = 'hidden';
+    sh.querySelector('input[name=name]').focus();
+  }
+  function closeContact() { $('#sheet').hidden = true; $('#sheet').innerHTML = ''; if ($('#viewer').hidden) document.body.style.overflow = ''; }
+  document.addEventListener('click', e => {
+    const c = e.target.closest('[data-contact]');
+    if (c) { e.preventDefault(); openContact(c.dataset.service, c.dataset.about); return; }
+    if (e.target.id === 'sheet' || e.target.closest('[data-close]')) closeContact();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#sheet').hidden) { e.stopImmediatePropagation(); closeContact(); } }, true);
+  document.addEventListener('submit', e => {
+    if (e.target.id !== 'cform') return;
+    e.preventDefault();
+    const f = new FormData(e.target), via = e.submitter ? e.submitter.value : 'wa';
+    const lines = [`Hi ${P.name || ''}, I found you through your portfolio.`, '', `Name: ${f.get('name')}`];
+    if (f.get('biz')) lines.push(`Business: ${f.get('biz')}`);
+    lines.push(`Service: ${f.get('service')}`);
+    if (f.get('budget')) lines.push(`Budget: ${f.get('budget')}`);
+    if (f.get('msg')) lines.push('', f.get('msg'));
+    const text = lines.join('\n');
+    if (via === 'mail') location.href = `mailto:${P.email}?subject=${encodeURIComponent('Project enquiry: ' + f.get('service'))}&body=${encodeURIComponent(text)}`;
+    else window.open(waLink(text), '_blank', 'noopener');
+    toast('Opening ' + (via === 'mail' ? 'email' : 'WhatsApp') + '…');
+  });
+
+  /* Broken thumbnail? Show a clean placeholder instead of a broken-image icon. */
+  document.addEventListener('error', e => {
+    const img = e.target;
+    if (img.tagName !== 'IMG' || !img.closest('.tile')) return;
+    const t = img.closest('.tile'); const it = ITEMS.find(i => t.getAttribute('href') === '#/p/' + i.id);
+    const vid = it && typeOf(it) === 'video' && it.video && !ytId(it.video) && !vimeoId(it.video);
+    img.outerHTML = vid ? `<video src="${esc(it.video)}#t=1" muted playsinline preload="metadata"></video>`
+      : `<div class="tile-svg" style="color:var(--muted)">${it ? TYPE_ICON[typeOf(it)] || I.images : I.images}</div>`;
+  }, true);
 
   /* ---------- Router: #/  #/s/<section>  #/about  #/p/<project> ---------- */
   let listRendered = false;

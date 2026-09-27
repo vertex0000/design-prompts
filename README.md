@@ -9,7 +9,9 @@ Clients ko kaam dikhane ke liye portfolio. Default theme black hai, aur day mode
 | **3D Models** | FBX / GLB / OBJ model, jise browser mein rotate, zoom aur wireframe mode mein dekh sakte ho |
 | **AI Automation** | n8n workflow ka diagram, steps ki list, aur Download JSON ka button |
 
-Sab kuch `admin.html` se badal sakte ho: projects, sections, profile, photo, banner, WhatsApp, colours.
+Header mein glowing world map hai, jisme har country ka naam aur currency symbol dikhta hai. Mouse le jaane par (ya tap karne par) har country ki detail aati hai. Har jagah **Contact us** button hai. Uspe click karke client form bharta hai aur message seedha aapke WhatsApp ya email par aata hai. Neeche right corner mein floating WhatsApp button bhi hai.
+
+Sab kuch `admin.html` se badal sakte ho: projects, sections, profile, photo, header, WhatsApp, colours, contact form.
 
 ---
 
@@ -24,6 +26,7 @@ Sab kuch `admin.html` se badal sakte ho: projects, sections, profile, photo, ban
 | `assets/js/site.js` | Website ka logic |
 | `assets/js/viewer3d.js` | 3D viewer (three.js) |
 | `assets/js/n8n.js` | n8n workflow diagram |
+| `assets/map/world-map.svg` | Header ka world map (240 countries, naam + currency) |
 | `assets/js/admin.js` | Admin ka logic |
 | `assets/demo/` | Dummy banner, avatar, 3 FBX furniture models, 3 n8n workflows |
 | `assets/uploads/` | Aapke uploads yahan save hote hain |
@@ -53,14 +56,14 @@ Aapka GitHub token isi browser mein pehle se save hai, isliye admin mein dobara 
    - **Motion Graphics:** MP4 drop karo (50 MB se kam) **ya** YouTube/Vimeo link paste karo. Badi videos ke liye YouTube (unlisted) best hai.
    - **3D Models:** `.fbx`, `.glb` ya `.obj` drop karo. Preview dikhega, use ghuma ke **Use this view as the cover** dabao. Cover na chuno to save karte waqt khud capture ho jata hai.
    - **AI Automation:** n8n se workflow export karo (⋯ → Download) aur `.json` drop karo, **ya** workflow copy karke paste karo. Diagram khud ban jata hai.
-3. Title, description, software aur tags bharo. **Featured** tick karoge to project sabse pehle dikhega.
+3. Title, description, **Software used** (Photoshop, Blender…), **Made with AI** (Midjourney, Runway…) aur **AI prompt** (optional, project page par copy button ke saath dikhta hai) bharo. **Featured** tick karoge to project sabse pehle dikhega.
 4. **Add project** dabao, phir upar **Publish to GitHub**. 1–2 minute mein live ho jayega.
 
 **Edit / Delete:** right side list mein har project ke saath buttons hain. Delete karke Publish karoge to uski uploaded files bhi GitHub se hat jayengi.
 
 **Naya section** (jaise "Logo Design"): **Sections** tab kholo, naam likho, type chuno (Images / Videos / 3D / n8n), Add karo aur Publish karo. ↑ button se tabs ka order badal sakte ho.
 
-**Profile:** naam, headline, photo, banner, email, WhatsApp, Instagram/Behance/LinkedIn, skills, software, experience, accent colour aur default theme, sab yahan se badlo.
+**Profile and site:** naam, headline, highlights, photo, header (world map ya apna banner), email, WhatsApp, Instagram/Behance/LinkedIn, skills, software, experience, Contact button ka text, contact form ki heading aur budget options, WhatsApp floating button, accent colour aur default theme, sab yahan se badlo.
 
 ---
 
