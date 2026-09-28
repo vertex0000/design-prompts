@@ -136,11 +136,11 @@ window.PORTFOLIO = {
     {
       "section": "3d-models",
       "date": "2026-09-28",
-      "model": "assets/uploads/models/mul67rix29d-13.obj",
-      "cover": "assets/uploads/images/mul68pv0dwf-m416-3d-cover.jpg",
-      "title": "M416 3d",
-      "modelFormat": "obj",
-      "id": "p-mul68pv1"
+      "model": "assets/uploads/models/mul6fic4su9-1.glb",
+      "title": "M416",
+      "modelFormat": "glb",
+      "cover": "assets/uploads/images/mul6fte4n4d-m416-cover.jpg",
+      "id": "p-mul6fte4"
     },
     {
       "section": "3d-models",
