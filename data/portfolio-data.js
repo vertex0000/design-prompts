@@ -10,16 +10,14 @@ window.PORTFOLIO = {
     "contactTitle": "Let's talk about your project",
     "contactIntro": "Tell me what you need. I usually reply within a few hours.",
     "budgets": [
-      "Under ₹5",
-      "000",
-      "₹5",
-      "000 – ₹15",
-      "000",
-      "₹15",
-      "000 – ₹50",
-      "000",
-      "Above ₹50",
-      "000"
+      "Under ₹500",
+      "1000₹– ₹500",
+      "800",
+      "₹2000",
+      "1000 – ₹500",
+      "2000",
+      "Above ₹500",
+      "3000"
     ],
     "protect": {
       "noRightClick": true,
