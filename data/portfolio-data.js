@@ -136,6 +136,15 @@ window.PORTFOLIO = {
   ],
   "items": [
     {
+      "section": "3d-models",
+      "date": "2026-09-28",
+      "model": "assets/uploads/models/mukv3rncnkq-sunset.obj",
+      "title": "Sunset cafe chair",
+      "modelFormat": "obj",
+      "cover": "assets/uploads/images/mukv42kdlgc-sunset-cafe-chair-cover.jpg",
+      "id": "p-mukv42kf"
+    },
+    {
       "section": "motion-graphics",
       "date": "2026-09-27",
       "title": "Office Chair Back",
@@ -346,29 +355,11 @@ window.PORTFOLIO = {
     {
       "section": "3d-models",
       "date": "2026-09-27",
-      "model": "assets/uploads/models/mujvtrajis9-h1d.fbx",
-      "title": "Wepon fbx",
-      "modelFormat": "fbx",
-      "cover": "assets/uploads/images/mujvu6un68b-wepon-fbx-cover.jpg",
-      "id": "p-mujvu6uo"
-    },
-    {
-      "section": "3d-models",
-      "date": "2026-09-27",
       "model": "assets/uploads/models/mujvsbmn04z-m243.fbx",
       "title": "M24",
       "modelFormat": "fbx",
       "cover": "assets/uploads/images/mujvstw7gl5-m24-cover.jpg",
       "id": "p-mujvstw8"
-    },
-    {
-      "section": "3d-models",
-      "date": "2026-09-27",
-      "model": "assets/uploads/models/mujvrfm7mhk-donut-2.fbx",
-      "title": "Donut",
-      "modelFormat": "fbx",
-      "cover": "assets/uploads/images/mujvrvz1e5o-donut-cover.jpg",
-      "id": "p-mujvrvz2"
     },
     {
       "section": "social-media-posts",
