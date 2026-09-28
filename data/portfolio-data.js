@@ -136,6 +136,15 @@ window.PORTFOLIO = {
     {
       "section": "3d-models",
       "date": "2026-09-28",
+      "model": "assets/uploads/models/mul67rix29d-13.obj",
+      "cover": "assets/uploads/images/mul68pv0dwf-m416-3d-cover.jpg",
+      "title": "M416 3d",
+      "modelFormat": "obj",
+      "id": "p-mul68pv1"
+    },
+    {
+      "section": "3d-models",
+      "date": "2026-09-28",
       "model": "assets/uploads/models/mukv3rncnkq-sunset.obj",
       "title": "Sunset cafe chair",
       "modelFormat": "obj",
