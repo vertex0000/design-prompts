@@ -354,7 +354,7 @@ window.PORTFOLIO = {
       "section": "3d-models",
       "date": "2026-09-27",
       "model": "assets/uploads/models/mujvvfhjah9-sl2.fbx",
-      "title": "2d House",
+      "title": "3d House",
       "modelFormat": "fbx",
       "cover": "assets/uploads/images/mujvvl51v3l-2d-house-cover.jpg",
       "id": "p-mujvvl52"
