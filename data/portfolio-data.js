@@ -136,6 +136,20 @@ window.PORTFOLIO = {
     {
       "section": "motion-graphics",
       "date": "2026-09-30",
+      "title": "Model",
+      "video": "https://www.instagram.com/reel/DaAMfWGMYVw/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
+      "id": "p-muo0uaqq"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "3d video",
+      "video": "https://youtube.com/shorts/eyytr_FeEko?si=9Us0_VC7BUDXObui",
+      "id": "p-muo0rwyy"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
       "title": "Base",
       "video": "https://youtube.com/shorts/dnt_nZaYj9s?si=AH9-J8YuRIdUd1xM",
       "id": "p-muo0o6nu"
