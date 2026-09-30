@@ -136,6 +136,55 @@ window.PORTFOLIO = {
     {
       "section": "motion-graphics",
       "date": "2026-09-30",
+      "title": "Base",
+      "video": "https://youtube.com/shorts/dnt_nZaYj9s?si=AH9-J8YuRIdUd1xM",
+      "id": "p-muo0o6nu"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "Iris",
+      "video": "https://youtube.com/shorts/62yTept1SQE?si=9kLDFnWYlK0Q4hoU",
+      "id": "p-muo0nvtu"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "Rolex chair Mordern Style edit",
+      "video": "https://youtube.com/shorts/oGPVatugpe4?si=dW80t8EtvFqeZ5Mv",
+      "id": "p-muo0lx89"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "Smart Chair",
+      "video": "https://youtube.com/shorts/emRepPtFcGs?si=Vt7awA0hSspydsps",
+      "id": "p-muo0l5gw"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "Glory",
+      "video": "https://youtube.com/shorts/X487EsnjQNE?si=nRJeUNDdOL1c_dD_",
+      "id": "p-muo0i3si"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "Royal Chair",
+      "video": "https://youtube.com/shorts/IQbphzNTkp4?si=iA9IMZvMpxTx40L4",
+      "id": "p-muo0gib5"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "Smart Chair",
+      "video": "https://youtube.com/shorts/rHXB3VOvFIA?si=yKtmW9FCUyiPuAk2",
+      "id": "p-muo0g0o1"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
       "title": "Bar stool",
       "video": "https://youtube.com/shorts/IOMc9M2eSFs?si=BBd6bGlsbtMWhAee",
       "id": "p-muo0f84z"
