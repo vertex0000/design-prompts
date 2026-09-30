@@ -98,7 +98,7 @@ window.PORTFOLIO = {
         "text": "We refine it together, then you get the final files."
       }
     ],
-    "banner": "assets/uploads/images/muo2n6iy3ak-csdecsde.jpg"
+    "banner": "assets/uploads/images/muo324kvg2k-supriya-bhandari-0uv-kfgmwe-unsplash.jpg"
   },
   "sections": [
     {
