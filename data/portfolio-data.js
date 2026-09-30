@@ -98,7 +98,7 @@ window.PORTFOLIO = {
         "text": "We refine it together, then you get the final files."
       }
     ],
-    "banner": "assets/uploads/images/muk6fqkea7f-nikolai-murenets-3.jpg"
+    "banner": "assets/uploads/images/muo2n6iy3ak-csdecsde.jpg"
   },
   "sections": [
     {
