@@ -136,13 +136,6 @@ window.PORTFOLIO = {
     {
       "section": "motion-graphics",
       "date": "2026-09-30",
-      "title": "Model",
-      "video": "https://www.instagram.com/reel/DaAMfWGMYVw/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==",
-      "id": "p-muo0uaqq"
-    },
-    {
-      "section": "motion-graphics",
-      "date": "2026-09-30",
       "title": "3d video",
       "video": "https://youtube.com/shorts/eyytr_FeEko?si=9Us0_VC7BUDXObui",
       "id": "p-muo0rwyy"
