@@ -134,6 +134,41 @@ window.PORTFOLIO = {
   ],
   "items": [
     {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "Bar stool",
+      "video": "https://youtube.com/shorts/IOMc9M2eSFs?si=BBd6bGlsbtMWhAee",
+      "id": "p-muo0f84z"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "Platina chair",
+      "video": "https://youtube.com/shorts/G71Dngfc_9A?si=cjyDzoLOiCzNuCUg",
+      "id": "p-muo0enw9"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "Elegant Chair",
+      "video": "https://youtube.com/shorts/qN6J5vM-IMk?si=dyg43RvKoW8U35mc",
+      "id": "p-muo0de54"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "santa",
+      "video": "https://youtube.com/shorts/YzPOIHD5jUM?si=LfKX-mGUPIKN7gbJ",
+      "id": "p-muo0cwki"
+    },
+    {
+      "section": "motion-graphics",
+      "date": "2026-09-30",
+      "title": "Hector HB Office Chair",
+      "video": "https://youtube.com/shorts/XvDKRuAE8fg?si=qd0enkzcg63yadAx",
+      "id": "p-muo0a636"
+    },
+    {
       "section": "3d-models",
       "date": "2026-09-28",
       "model": "assets/uploads/models/mul6fic4su9-1.glb",
