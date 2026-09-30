@@ -98,7 +98,7 @@ window.PORTFOLIO = {
         "text": "We refine it together, then you get the final files."
       }
     ],
-    "banner": "assets/uploads/images/muo2o5gk1nl-csdecsde.jpg"
+    "banner": "assets/uploads/images/muo2n6iy3ak-csdecsde.jpg"
   },
   "sections": [
     {
@@ -133,6 +133,15 @@ window.PORTFOLIO = {
     }
   ],
   "items": [
+    {
+      "section": "social-media-posts",
+      "images": [
+        "assets/uploads/images/muo2wgx3l1o-csdcsd.jpg"
+      ],
+      "date": "2026-09-30",
+      "title": "Red Chair post",
+      "id": "p-muo2wp87"
+    },
     {
       "section": "motion-graphics",
       "date": "2026-09-30",
